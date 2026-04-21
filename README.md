@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MEDICARE
 
-## Getting Started
+Website bán thiết bị y tế tại nhà được xây dựng cho bài thi Thiết kế Web. Repo này hiện đang chứa phần foundation do **Bảo Hân** triển khai: dựng source project, thiết lập nhận diện chung, làm trang `FAQ` và chuẩn bị baseline deploy lên GitHub Pages.
 
-First, run the development server:
+## Công nghệ sử dụng
+
+- Next.js 16 App Router
+- Tailwind CSS 4
+- TypeScript
+- GitHub Actions + GitHub Pages static export
+
+## Trạng thái hiện tại
+
+Đã hoàn thành trong repo:
+
+- dựng nền source từ đầu
+- brand shell theo style Medishop
+- trang đặc trưng theo chủ đề: `FAQ`
+- baseline deploy GitHub Pages
+
+Các phần còn lại của nhóm sẽ tiếp tục phát triển trên cùng nền này:
+
+- danh sách sản phẩm
+- chi tiết sản phẩm
+- giỏ hàng và thanh toán
+- đăng nhập, tìm kiếm, liên hệ, about, 404
+
+## Các route đang có
+
+- `/` : Trang chủ foundation của Medishop
+- `/faq` : Trang câu hỏi thường gặp về thiết bị y tế tại nhà
+
+## Chạy local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mở `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build kiểm tra
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+Repo đang dùng `output: "export"` để phù hợp với GitHub Pages.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy GitHub Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Repo đã có workflow tại:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+.github/workflows/deploy.yml
+```
 
-## Deploy on Vercel
+Nguyên tắc deploy:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- push lên branch `main`
+- GitHub Actions sẽ build static export vào thư mục `out`
+- artifact `out` sẽ được publish lên GitHub Pages
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Thiết lập cần có trên GitHub:
+
+1. Vào `Settings > Pages`
+2. Chọn source là `GitHub Actions`
+3. Đảm bảo repo public hoặc Pages đã được bật đúng quyền
+
+`next.config.ts` đã có sẵn:
+
+- `output: "export"`
+- `images.unoptimized = true`
+- `trailingSlash = true`
+- `basePath` và `assetPrefix` tự động dùng tên repo khi chạy trên GitHub Actions
+
+## Cấu trúc thư mục chính
+
+```text
+app/
+  faq/
+  globals.css
+  layout.tsx
+  page.tsx
+components/
+  site-footer.tsx
+  site-header.tsx
+lib/
+  faq-content.ts
+```
+
+## Ghi chú theo scope Bảo Hân
+
+Trong phần đã làm của Bảo Hân:
+
+- init source project
+- dựng brand foundation
+- chọn và triển khai trang đặc trưng theo chủ đề là `FAQ`
+- chuẩn bị baseline deploy và tài liệu README
+
+Phần này được chia nhỏ thành nhiều checkpoint commit để thuận lợi cho chấm điểm đóng góp cá nhân trên GitHub.
