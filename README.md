@@ -1,6 +1,6 @@
 # MEDICARE
 
-Website bán thiết bị y tế tại nhà được xây dựng cho bài thi Thiết kế Web. Repo này hiện đang chứa phần foundation do **Bảo Hân** triển khai: dựng source project, thiết lập nhận diện chung, làm trang `FAQ` và chuẩn bị baseline deploy lên GitHub Pages.
+Website bán thiết bị y tế tại nhà được xây dựng cho bài thi Thiết kế Web. Repo này hiện đang chứa nền tảng giao diện và các phần việc đã được chia theo thành viên để phục vụ chấm điểm đóng góp cá nhân trên GitHub.
 
 ## Công nghệ sử dụng
 
@@ -17,18 +17,24 @@ Website bán thiết bị y tế tại nhà được xây dựng cho bài thi Th
 - brand shell theo style Medishop
 - trang đặc trưng theo chủ đề: `FAQ`
 - baseline deploy GitHub Pages
+- giỏ hàng và thanh toán
+- đăng nhập, tìm kiếm, liên hệ, about, 404
 
-Các phần còn lại của nhóm sẽ tiếp tục phát triển trên cùng nền này:
+Các phần còn thiếu theo đề bài sẽ tiếp tục phát triển trên cùng nền này:
 
 - danh sách sản phẩm
 - chi tiết sản phẩm
-- giỏ hàng và thanh toán
-- đăng nhập, tìm kiếm, liên hệ, about, 404
 
 ## Các route đang có
 
 - `/` : Trang chủ foundation của Medishop
 - `/faq` : Trang câu hỏi thường gặp về thiết bị y tế tại nhà
+- `/cart` : Giỏ hàng
+- `/checkout` : Thanh toán
+- `/login` : Đăng nhập
+- `/search` : Tìm kiếm sản phẩm
+- `/about` : Giới thiệu nhóm
+- `/contact` : Liên hệ
 
 ## Chạy local
 
@@ -90,13 +96,11 @@ lib/
   faq-content.ts
 ```
 
-## Ghi chú theo scope Bảo Hân
+## Ghi chú theo phân công
 
-Trong phần đã làm của Bảo Hân:
+- **Bảo Hân**: init source project, dựng brand foundation, triển khai `FAQ`, chuẩn bị baseline deploy và README.
+- **Hồng Hậu**: triển khai giỏ hàng, thanh toán và các trạng thái đơn phía client.
+- **Gia Hân**: triển khai đăng nhập, tìm kiếm, liên hệ, about và trang lỗi 404.
+- **Hải Yến**: cung cấp bộ giao diện tĩnh HTML/CSS/JS và tài liệu tích hợp ban đầu.
 
-- init source project
-- dựng brand foundation
-- chọn và triển khai trang đặc trưng theo chủ đề là `FAQ`
-- chuẩn bị baseline deploy và tài liệu README
-
-Phần này được chia nhỏ thành nhiều checkpoint commit để thuận lợi cho chấm điểm đóng góp cá nhân trên GitHub.
+Mỗi phần việc được tách thành nhiều checkpoint commit để thuận lợi cho chấm điểm đóng góp cá nhân trên GitHub.
