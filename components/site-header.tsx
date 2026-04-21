@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCart } from "@/components/cart-provider";
 
 const navItems = [
@@ -14,6 +15,8 @@ const navItems = [
 
 export function SiteHeader() {
   const { itemCount, isHydrated } = useCart();
+  const pathname = usePathname();
+  const breadcrumbLabel = getBreadcrumbLabel(pathname);
 
   return (
     <header className="sticky top-0 z-20 border-b border-[var(--color-line)] bg-white/95 backdrop-blur-md">
@@ -38,9 +41,19 @@ export function SiteHeader() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="flex min-w-14 flex-col items-center gap-1 text-[11px] font-semibold text-[var(--color-ink)] transition hover:text-[var(--color-brand-deep)]"
+                className={`flex min-w-14 flex-col items-center gap-1 text-[11px] font-semibold transition ${
+                  pathname === item.href
+                    ? "text-[var(--color-brand)]"
+                    : "text-[var(--color-ink)] hover:text-[var(--color-brand-deep)]"
+                }`}
               >
-                <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--color-line)] text-[12px]">
+                <span
+                  className={`flex h-6 w-6 items-center justify-center rounded-full border text-[12px] ${
+                    pathname === item.href
+                      ? "border-[var(--color-brand)] bg-[var(--color-brand-soft)]"
+                      : "border-[var(--color-line)]"
+                  }`}
+                >
                   {item.glyph}
                 </span>
                 {item.label}
@@ -81,7 +94,7 @@ export function SiteHeader() {
       <div className="border-t border-[var(--color-line)] bg-[var(--color-surface)]">
         <div className="mx-auto flex w-full max-w-7xl items-center gap-4 px-4 py-2.5 sm:px-6 lg:px-8">
           <p className="hidden text-[11px] text-[var(--color-muted)] md:block">
-            Trang chủ &gt; Thiết bị y tế &gt; Máy đo huyết áp
+            {breadcrumbLabel}
           </p>
           <div className="md:ml-auto md:w-[20rem]">
             <div className="flex items-center rounded-full border border-[var(--color-line)] bg-white px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
@@ -98,4 +111,20 @@ export function SiteHeader() {
       </div>
     </header>
   );
+}
+
+function getBreadcrumbLabel(pathname: string) {
+  if (pathname === "/cart") {
+    return "Trang chủ > Giỏ hàng > Kiểm tra đơn";
+  }
+
+  if (pathname === "/checkout") {
+    return "Trang chủ > Giỏ hàng > Thanh toán";
+  }
+
+  if (pathname === "/faq") {
+    return "Trang chủ > Hỗ trợ khách hàng > Câu hỏi thường gặp";
+  }
+
+  return "Trang chủ > Thiết bị y tế > Máy đo huyết áp";
 }

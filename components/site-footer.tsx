@@ -1,22 +1,34 @@
-const footerColumns = [
+import Link from "next/link";
+
+type FooterItem = {
+  label: string;
+  href?: string;
+};
+
+const footerColumns: Array<{ title: string; items: FooterItem[] }> = [
   {
     title: "ĐIỀU HƯỚNG",
-    items: ["Trang chủ", "Sản phẩm", "FAQ", "Tin tức y tế"],
+    items: [
+      { label: "Trang chủ", href: "/" },
+      { label: "Giỏ hàng", href: "/cart" },
+      { label: "Thanh toán", href: "/checkout" },
+      { label: "FAQ", href: "/faq" },
+    ],
   },
   {
     title: "HỖ TRỢ KHÁCH HÀNG",
     items: [
-      "Chính sách bảo mật",
-      "Chính sách đổi trả",
-      "Hướng dẫn mua hàng",
+      { label: "Chính sách bảo mật" },
+      { label: "Chính sách đổi trả" },
+      { label: "Hướng dẫn mua hàng" },
     ],
   },
   {
     title: "LIÊN HỆ",
     items: [
-      "Địa chỉ: Quận 1, TP. Hồ Chí Minh",
-      "Hotline: 1900 24 85",
-      "Email: contact@medishop.vn",
+      { label: "Địa chỉ: Quận 1, TP. Hồ Chí Minh" },
+      { label: "Hotline: 1900 24 85" },
+      { label: "Email: contact@medishop.vn" },
     ],
   },
 ];
@@ -58,7 +70,18 @@ export function SiteFooter() {
             </h2>
             <ul className="mt-4 space-y-3 text-sm text-white/82">
               {column.items.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item.label}>
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      className="transition hover:text-white"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    item.label
+                  )}
+                </li>
               ))}
             </ul>
           </div>
