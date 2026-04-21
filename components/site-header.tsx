@@ -1,14 +1,16 @@
 "use client";
 
+import { Suspense } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/components/cart-provider";
+import { SiteSearchForm } from "@/components/site-search-form";
 
 const navItems = [
   { href: "/", label: "Home", glyph: "⌂", available: true },
-  { href: "#", label: "Products", glyph: "◫", available: false },
-  { href: "#", label: "About", glyph: "ⓘ", available: false },
-  { href: "#", label: "Contact", glyph: "✉", available: false },
+  { href: "/search", label: "Products", glyph: "◫", available: true },
+  { href: "/about", label: "About", glyph: "ⓘ", available: true },
+  { href: "/contact", label: "Contact", glyph: "✉", available: true },
   { href: "/cart", label: "Cart", glyph: "🛒", available: true },
   { href: "/faq", label: "FAQ", glyph: "?", available: true },
 ];
@@ -82,12 +84,15 @@ export function SiteHeader() {
               {isHydrated ? itemCount : 0}
             </span>
           </Link>
-          <div className="flex items-center gap-2 text-xs font-semibold text-[var(--color-ink)]">
+          <Link
+            href="/login"
+            className="flex items-center gap-2 text-xs font-semibold text-[var(--color-ink)] transition hover:text-[var(--color-brand-deep)]"
+          >
             <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[var(--color-line)]">
               ○
             </span>
             <span className="hidden sm:inline">Login</span>
-          </div>
+          </Link>
         </div>
       </div>
 
@@ -97,15 +102,9 @@ export function SiteHeader() {
             {breadcrumbLabel}
           </p>
           <div className="md:ml-auto md:w-[20rem]">
-            <div className="flex items-center rounded-full border border-[var(--color-line)] bg-white px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
-              <input
-                aria-label="Tìm kiếm sản phẩm"
-                className="w-full border-0 bg-transparent text-xs text-[var(--color-ink)] outline-none placeholder:text-[var(--color-muted)]"
-                placeholder="Tìm kiếm sản phẩm"
-                readOnly
-              />
-              <span className="text-[12px] text-[var(--color-muted)]">⌕</span>
-            </div>
+            <Suspense fallback={<SearchFallback />}>
+              <SiteSearchForm />
+            </Suspense>
           </div>
         </div>
       </div>
@@ -126,5 +125,30 @@ function getBreadcrumbLabel(pathname: string) {
     return "Trang chủ > Hỗ trợ khách hàng > Câu hỏi thường gặp";
   }
 
+  if (pathname === "/login") {
+    return "Trang chủ > Tài khoản > Đăng nhập";
+  }
+
+  if (pathname === "/search") {
+    return "Trang chủ > Tìm kiếm > Kết quả sản phẩm";
+  }
+
+  if (pathname === "/about") {
+    return "Trang chủ > Về chúng tôi > Thành viên nhóm";
+  }
+
+  if (pathname === "/contact") {
+    return "Trang chủ > Hỗ trợ khách hàng > Liên hệ";
+  }
+
   return "Trang chủ > Thiết bị y tế > Máy đo huyết áp";
+}
+
+function SearchFallback() {
+  return (
+    <div className="flex items-center rounded-full border border-[var(--color-line)] bg-white px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
+      <div className="w-full text-xs text-[var(--color-muted)]">Tìm kiếm sản phẩm</div>
+      <span className="text-[12px] text-[var(--color-muted)]">⌕</span>
+    </div>
+  );
 }
