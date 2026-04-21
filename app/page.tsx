@@ -25,10 +25,10 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap items-center gap-3">
                 <Link
-                  href="/cart"
+                  href="/products"
                   className="inline-flex items-center justify-center rounded-[8px] bg-[var(--color-brand)] px-5 py-3 text-sm font-bold text-white"
                 >
-                  MỞ GIỎ HÀNG
+                  KHÁM PHÁ SẢN PHẨM
                 </Link>
                 <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-line)] bg-white text-[var(--color-brand)]">
                   +
@@ -58,7 +58,8 @@ export default function Home() {
           {featuredProducts.map((item, index) => (
             <article
               key={item.name}
-              className="rounded-[6px] border border-[#e5edf5] bg-white p-4 shadow-[0_1px_0_rgba(255,255,255,0.65)]"
+              className="motion-safe motion-rise rounded-[6px] border border-[#e5edf5] bg-white p-4 shadow-[0_1px_0_rgba(255,255,255,0.65)]"
+              style={{ animationDelay: `${index * 90}ms` }}
             >
               <div
                 className="mb-4 flex aspect-[1/0.88] items-center justify-center rounded-[4px] bg-[linear-gradient(180deg,#fefefe,#edf5fc)]"
@@ -84,14 +85,23 @@ export default function Home() {
                   className="inline-flex items-center justify-center rounded-[6px] bg-[var(--color-brand)] px-4 py-2 text-[12px] font-semibold text-white transition hover:bg-[var(--color-brand-deep)]"
                 />
                 <Link
-                  href="/checkout"
+                  href={`/products/${item.slug}`}
                   className="text-[12px] font-semibold text-[var(--color-brand-deep)] transition hover:text-[var(--color-brand)]"
                 >
-                  Mua ngay
+                  Xem chi tiết
                 </Link>
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <Link
+            href="/products"
+            className="inline-flex items-center justify-center rounded-full border border-[var(--color-line)] bg-white px-5 py-3 text-sm font-bold text-[var(--color-ink)] transition hover:border-[var(--color-brand)]"
+          >
+            Xem toàn bộ danh sách sản phẩm
+          </Link>
         </div>
       </section>
     </div>

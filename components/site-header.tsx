@@ -133,6 +133,14 @@ function getBreadcrumbLabel(pathname: string) {
     return "Trang chủ > Tìm kiếm > Kết quả sản phẩm";
   }
 
+  if (pathname === "/products") {
+    return "Trang chủ > Sản phẩm > Danh sách thiết bị y tế";
+  }
+
+  if (pathname.startsWith("/products/")) {
+    return "Trang chủ > Sản phẩm > Chi tiết sản phẩm";
+  }
+
   if (pathname === "/about") {
     return "Trang chủ > Về chúng tôi > Thành viên nhóm";
   }
