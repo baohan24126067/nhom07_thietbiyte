@@ -1,14 +1,20 @@
+"use client";
+
 import Link from "next/link";
+import { useCart } from "@/components/cart-provider";
 
 const navItems = [
   { href: "/", label: "Home", glyph: "⌂", available: true },
   { href: "#", label: "Products", glyph: "◫", available: false },
   { href: "#", label: "About", glyph: "ⓘ", available: false },
   { href: "#", label: "Contact", glyph: "✉", available: false },
+  { href: "/cart", label: "Cart", glyph: "🛒", available: true },
   { href: "/faq", label: "FAQ", glyph: "?", available: true },
 ];
 
 export function SiteHeader() {
+  const { itemCount, isHydrated } = useCart();
+
   return (
     <header className="sticky top-0 z-20 border-b border-[var(--color-line)] bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-5 px-4 py-3 sm:px-6 lg:px-8">
@@ -54,12 +60,15 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <div className="hidden items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-brand-soft)] px-3 py-1.5 lg:flex">
+          <Link
+            href="/cart"
+            className="hidden items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-brand-soft)] px-3 py-1.5 transition hover:border-[var(--color-brand)] lg:flex"
+          >
             <span className="text-xs text-[var(--color-ink)]">Cart</span>
             <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#e53935] px-1 text-[10px] font-bold text-white">
-              2
+              {isHydrated ? itemCount : 0}
             </span>
-          </div>
+          </Link>
           <div className="flex items-center gap-2 text-xs font-semibold text-[var(--color-ink)]">
             <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[var(--color-line)]">
               ○

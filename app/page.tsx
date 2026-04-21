@@ -1,21 +1,11 @@
+import Link from "next/link";
+import { AddToCartButton } from "@/components/add-to-cart-button";
+import { ProductIllustration } from "@/components/product-illustration";
+import { formatCurrency } from "@/lib/currency";
+import { getFeaturedProducts } from "@/lib/products";
+
 export default function Home() {
-  const featuredProducts = [
-    {
-      name: "Máy massage xung điện trị liệu Omron HV-F013",
-      price: "1.200.000đ / Hộp",
-      unit: "DVT: Hộp",
-    },
-    {
-      name: "Mặt nạ xông khí dung Greentec nebulizer mask",
-      price: "21.000đ / Cái",
-      unit: "DVT: Cái",
-    },
-    {
-      name: "Đầu kim tiểu đường 33G x 4mm Pic Insupen",
-      price: "250.000đ / Hộp",
-      unit: "DVT: Hộp",
-    },
-  ];
+  const featuredProducts = getFeaturedProducts();
 
   return (
     <div className="pb-20">
@@ -34,12 +24,12 @@ export default function Home() {
                 sức khỏe mỗi ngày.
               </p>
               <div className="flex flex-wrap items-center gap-3">
-                <a
-                  href="/faq"
+                <Link
+                  href="/cart"
                   className="inline-flex items-center justify-center rounded-[8px] bg-[var(--color-brand)] px-5 py-3 text-sm font-bold text-white"
                 >
-                  KHÁM PHÁ NGAY
-                </a>
+                  MỞ GIỎ HÀNG
+                </Link>
                 <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-line)] bg-white text-[var(--color-brand)]">
                   +
                 </span>
@@ -74,31 +64,32 @@ export default function Home() {
                 className="mb-4 flex aspect-[1/0.88] items-center justify-center rounded-[4px] bg-[linear-gradient(180deg,#fefefe,#edf5fc)]"
                 aria-hidden="true"
               >
-                <div
-                  className={`rounded-2xl ${
-                    index === 0
-                      ? "h-28 w-24 bg-[#9eb8d0]"
-                      : index === 1
-                        ? "h-28 w-16 rotate-12 bg-[#9ee8f3]"
-                        : "h-24 w-24 bg-[#ffd56e]"
-                  }`}
+                <ProductIllustration
+                  product={item}
+                  className={index === 1 ? "h-28 w-16" : "h-28 w-24"}
                 />
               </div>
               <h2 className="min-h-12 text-[14px] leading-5 text-[var(--color-ink)]">
                 {item.name}
               </h2>
               <p className="mt-3 inline-flex rounded-[4px] bg-[var(--color-brand)] px-2 py-1 text-[12px] font-bold text-white">
-                {item.price}
+                {formatCurrency(item.price)} / {item.unit}
               </p>
               <p className="mt-2 text-[12px] text-[var(--color-muted)]">
-                {item.unit}
+                DVT: {item.unit}
               </p>
-              <a
-                href="/faq"
-                className="mt-4 inline-flex items-center justify-center rounded-[6px] bg-[var(--color-brand)] px-4 py-2 text-[12px] font-semibold text-white"
-              >
-                Thêm vào giỏ hàng
-              </a>
+              <div className="mt-4 flex items-center gap-3">
+                <AddToCartButton
+                  productId={item.id}
+                  className="inline-flex items-center justify-center rounded-[6px] bg-[var(--color-brand)] px-4 py-2 text-[12px] font-semibold text-white transition hover:bg-[var(--color-brand-deep)]"
+                />
+                <Link
+                  href="/checkout"
+                  className="text-[12px] font-semibold text-[var(--color-brand-deep)] transition hover:text-[var(--color-brand)]"
+                >
+                  Mua ngay
+                </Link>
+              </div>
             </article>
           ))}
         </div>
