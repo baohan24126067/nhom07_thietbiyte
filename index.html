@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediShop - Hệ thống thiết bị y tế chính hãng (Dự án Hải Yến)</title>
+  <meta name="author" content="Hải Yến">
+  <meta name="description" content="MediShop - Hệ thống nhà thuốc cung cấp sản phẩm chăm sóc sức khỏe chính hãng, đồng hành cùng gia đình bạn mỗi ngày. Thực hiện bởi Hải Yến.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header" id="header"></header>
+
+<div class="subbar">
+  <div class="container subbar-inner">
+    <span class="breadcrumb">Trang chủ &nbsp;›&nbsp; Thiết bị y tế &nbsp;›&nbsp; Máy đo huyết áp</span>
+    <div class="search-box">
+      <input type="text" class="search-input" placeholder="Tìm kiếm sản phẩm" id="search-input">
+      <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none">
+        <circle cx="11" cy="11" r="7" stroke="#9CA3AF" stroke-width="1.8"/>
+        <path d="M20 20L16.65 16.65" stroke="#9CA3AF" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<section class="hero" id="hero">
+  <div class="container hero-container">
+    <div class="hero-wrap">
+      <img class="hero-img" src="assets/images/hero.jpg" alt="Bác sĩ chăm sóc sức khỏe">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="c-black fw-600">Mua sắm </span><span class="c-blue fw-800">AN TÂM</span><span class="c-black fw-700"> —</span><br>
+          <span class="c-blue fw-800">SỐNG KHỎE</span><span class="c-black fw-600"> Mỗi ngày</span>
+        </h1>
+        <p class="hero-desc">MediShop đồng hành cùng gia đình bạn<br>trên hành trình chăm sóc sức khỏe mỗi ngày.</p>
+        <a href="#products" class="hero-btn" id="hero-btn">KHÁM PHÁ NGAY</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="products" id="products">
+  <div class="container">
+    <div class="product-grid" id="product-grid">
+
+      <article class="card" id="product-1">
+        <div class="card-img-wrap">
+          <img src="assets/images/product-1.jpg" alt="Omron HV-F013" class="card-img">
+        </div>
+        <div class="card-body">
+          <p class="card-title">Máy massage xung điện trị liệu Omron HV-F013 giúp giảm đau cơ và khớp</p>
+          <div class="card-price">1.200.000đ/ Hộp</div>
+          <p class="card-unit">ĐVT: Hộp</p>
+          <button class="btn-add" id="btn-add-1" onclick="addToCart(this)">Thêm vào giỏ hàng</button>
+        </div>
+      </article>
+
+      <article class="card" id="product-2">
+        <div class="card-img-wrap">
+          <img src="assets/images/product-2.jpg" alt="Greetmed nebulizer" class="card-img">
+        </div>
+        <div class="card-body">
+          <p class="card-title">Mặt nạ xông khí dung Greetmed nebulizer mask size M</p>
+          <div class="card-price">21.000đ/ Cái</div>
+          <p class="card-unit">ĐVT: Cái</p>
+          <button class="btn-add" id="btn-add-2" onclick="addToCart(this)">Thêm vào giỏ hàng</button>
+        </div>
+      </article>
+
+      <article class="card" id="product-3">
+        <div class="card-img-wrap">
+          <img src="assets/images/product-3.jpg" alt="Pic insupen" class="card-img">
+        </div>
+        <div class="card-body">
+          <p class="card-title">Đầu kim tiểu đường 33G x 4mm Pic insupen original</p>
+          <div class="card-price">250.000đ/ Hộp</div>
+          <p class="card-unit">ĐVT: Hộp</p>
+          <button class="btn-add" id="btn-add-3" onclick="addToCart(this)">Thêm vào giỏ hàng</button>
+        </div>
+      </article>
+
+      <article class="card" id="product-4">
+        <div class="card-img-wrap">
+          <img src="assets/images/product-4.jpg" alt="Yuwell YE610D" class="card-img">
+        </div>
+        <div class="card-body">
+          <p class="card-title">Máy đo huyết áp bắp tay Yuwell YE610D hỗ trợ đo huyết áp, nhịp tim</p>
+          <div class="card-price">699.000đ/ Hộp</div>
+          <p class="card-unit">ĐVT: Hộp</p>
+          <button class="btn-add" id="btn-add-4" onclick="addToCart(this)">Thêm vào giỏ hàng</button>
+        </div>
+      </article>
+
+      <article class="card" id="product-5">
+        <div class="card-img-wrap">
+          <img src="assets/images/product-5.jpg" alt="Yuwell YT-1C" class="card-img">
+        </div>
+        <div class="card-body">
+          <p class="card-title">Nhiệt kế hồng ngoại đo trán Yuwell YT-1C</p>
+          <div class="card-price">501.500đ/ Hộp</div>
+          <p class="card-unit">ĐVT: Hộp</p>
+          <button class="btn-add" id="btn-add-5" onclick="addToCart(this)">Thêm vào giỏ hàng</button>
+        </div>
+      </article>
+
+      <article class="card" id="product-6">
+        <div class="card-img-wrap">
+          <img src="assets/images/product-6.jpg" alt="Medicleen BL-28" class="card-img">
+        </div>
+        <div class="card-body">
+          <p class="card-title">Kim lấy máu Lancet Medicleen BL-28</p>
+          <div class="card-price">32.000đ/ Hộp</div>
+          <p class="card-unit">ĐVT: Hộp</p>
+          <button class="btn-add" id="btn-add-6" onclick="addToCart(this)">Thêm vào giỏ hàng</button>
+        </div>
+      </article>
+
+      <article class="card" id="product-7">
+        <div class="card-img-wrap">
+          <img src="assets/images/product-7.jpg" alt="Braun 22G" class="card-img">
+        </div>
+        <div class="card-body">
+          <p class="card-title">Kim luồn tĩnh mạch Braun 22G hỗ trợ truyền dịch, nước vào cơ thể</p>
+          <div class="card-price">19.000đ/ Cái</div>
+          <p class="card-unit">ĐVT: Cái</p>
+          <button class="btn-add" id="btn-add-7" onclick="addToCart(this)">Thêm vào giỏ hàng</button>
+        </div>
+      </article>
+
+      <article class="card" id="product-8">
+        <div class="card-img-wrap">
+          <img src="assets/images/product-8.jpg" alt="Accu Chek" class="card-img">
+        </div>
+        <div class="card-body">
+          <p class="card-title">Máy đo đường huyết Accu Chek Instant hỗ trợ theo dõi, kiểm soát lượng đường trong máu</p>
+          <div class="card-price">850.000đ/ Hộp</div>
+          <p class="card-unit">ĐVT: Hộp</p>
+          <button class="btn-add" id="btn-add-8" onclick="addToCart(this)">Thêm vào giỏ hàng</button>
+        </div>
+      </article>
+
+      <article class="card" id="product-9">
+        <div class="card-img-wrap">
+          <img src="assets/images/product-9.jpg" alt="Greetmed 22G" class="card-img">
+        </div>
+        <div class="card-body">
+          <p class="card-title">Dây truyền dịch kim bướm Greetmed 22G dùng để truyền dịch cho bệnh nhân</p>
+          <div class="card-price">5.000đ/ Cái</div>
+          <p class="card-unit">ĐVT: Cái</p>
+          <button class="btn-add" id="btn-add-9" onclick="addToCart(this)">Thêm vào giỏ hàng</button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</main>
+
+<footer class="footer" id="footer"></footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
