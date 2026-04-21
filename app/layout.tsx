@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Source_Sans_3 } from "next/font/google";
+import { CartProvider } from "@/components/cart-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
@@ -34,12 +35,14 @@ export default function RootLayout({
       className={`${manrope.variable} ${sourceSans.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full bg-[var(--color-surface)] text-[var(--color-ink)]">
-        <div className="relative flex min-h-full flex-col overflow-x-hidden">
-          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(30,136,229,0.22),_transparent_58%)]" />
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-        </div>
+        <CartProvider>
+          <div className="relative flex min-h-full flex-col overflow-x-hidden">
+            <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(30,136,229,0.22),_transparent_58%)]" />
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+          </div>
+        </CartProvider>
       </body>
     </html>
   );
