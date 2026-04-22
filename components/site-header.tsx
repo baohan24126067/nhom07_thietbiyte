@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/components/cart-provider";
@@ -19,6 +19,11 @@ export function SiteHeader() {
   const { itemCount, isHydrated } = useCart();
   const pathname = usePathname();
   const breadcrumbLabel = getBreadcrumbLabel(pathname);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-20 border-b border-[var(--color-line)] bg-white/95 backdrop-blur-md">
@@ -36,6 +41,33 @@ export function SiteHeader() {
             </span>
           </span>
         </Link>
+
+        <button
+          type="button"
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-site-menu"
+          aria-label={isMenuOpen ? "Đóng menu điều hướng" : "Mở menu điều hướng"}
+          onClick={() => setIsMenuOpen((current) => !current)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line)] bg-white text-[var(--color-ink)] transition hover:border-[var(--color-brand)] md:hidden"
+        >
+          <span className="flex flex-col items-center justify-center gap-1.5">
+            <span
+              className={`block h-0.5 w-5 rounded-full bg-current transition ${
+                isMenuOpen ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-5 rounded-full bg-current transition ${
+                isMenuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-5 rounded-full bg-current transition ${
+                isMenuOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
+            />
+          </span>
+        </button>
 
         <nav className="hidden items-end gap-6 md:flex">
           {navItems.map((item) =>
@@ -95,6 +127,47 @@ export function SiteHeader() {
           </Link>
         </div>
       </div>
+
+      {isMenuOpen ? (
+        <div
+          id="mobile-site-menu"
+          className="border-t border-[var(--color-line)] bg-white md:hidden"
+        >
+          <nav className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-4 sm:px-6">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`flex items-center justify-between rounded-[18px] border px-4 py-3 text-sm font-semibold transition ${
+                  pathname === item.href
+                    ? "border-[var(--color-brand)] bg-[var(--color-brand-soft)] text-[var(--color-brand-deep)]"
+                    : "border-[var(--color-line)] text-[var(--color-ink)]"
+                }`}
+              >
+                <span className="flex items-center gap-3">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-line)] text-[13px]">
+                    {item.glyph}
+                  </span>
+                  {item.label}
+                </span>
+                {item.href === "/cart" ? (
+                  <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-[#e53935] px-1 text-[10px] font-bold text-white">
+                    {isHydrated ? itemCount : 0}
+                  </span>
+                ) : (
+                  <span className="text-xs text-[var(--color-muted)]">Open</span>
+                )}
+              </Link>
+            ))}
+            <Link
+              href="/login"
+              className="mt-2 inline-flex items-center justify-center rounded-full bg-[var(--color-brand)] px-4 py-3 text-sm font-bold text-white transition hover:bg-[var(--color-brand-deep)]"
+            >
+              Đăng nhập tài khoản
+            </Link>
+          </nav>
+        </div>
+      ) : null}
 
       <div className="border-t border-[var(--color-line)] bg-[var(--color-surface)]">
         <div className="mx-auto flex w-full max-w-7xl items-center gap-4 px-4 py-2.5 sm:px-6 lg:px-8">
