@@ -1,0 +1,55 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { products } from "@/lib/products";
+
+export function SiteSearchForm() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [query, setQuery] = useState(searchParams.get("q") ?? "");
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const nextQuery = query.trim();
+
+    if (!nextQuery) {
+      router.push("/search");
+      return;
+    }
+
+    router.push(`/search?q=${encodeURIComponent(nextQuery)}`);
+  };
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="group flex items-center rounded-full border border-[var(--color-line)] bg-white/80 px-4 py-1.5 shadow-sm transition-all hover:bg-white hover:shadow-md"
+    >
+      <input
+        aria-label="Tìm kiếm sản phẩm"
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+        className="w-full border-0 bg-transparent text-xs text-[var(--color-ink)] outline-none placeholder:text-[var(--color-muted)]"
+        list="product-search-suggestions"
+        placeholder={
+          pathname === "/search" ? "Tìm trong danh mục thiết bị y tế" : "Tìm kiếm sản phẩm"
+        }
+      />
+      <datalist id="product-search-suggestions">
+        {products.map((product) => (
+          <option key={product.id} value={product.name} />
+        ))}
+      </datalist>
+      <button
+        type="submit"
+        suppressHydrationWarning={true}
+        className="text-[12px] text-[var(--color-muted)] transition hover:text-[var(--color-brand)]"
+        aria-label="Mở tìm kiếm"
+      >
+        <span className="text-[16px] font-bold">⌕</span>
+      </button>
+    </form>
+  );
+}
