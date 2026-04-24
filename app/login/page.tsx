@@ -149,10 +149,10 @@ export default function LoginPage() {
             <p className="text-center text-sm text-[var(--color-muted)]">
               Chưa có tài khoản?{" "}
               <Link
-                href="/contact"
+                href="/register"
                 className="font-semibold text-[var(--color-brand-deep)] transition hover:text-[var(--color-brand)]"
               >
-                Liên hệ đội ngũ MediShop
+                Đăng ký ngay
               </Link>
             </p>
           </form>

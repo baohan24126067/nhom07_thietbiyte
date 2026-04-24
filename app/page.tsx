@@ -29,10 +29,10 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap items-center gap-3">
                 <Link
-                  href="/products"
+                  href="/search"
                   className="inline-flex items-center justify-center rounded-[8px] bg-[var(--color-brand)] px-5 py-3 text-sm font-bold text-white"
                 >
-                  KHÁM PHÁ SẢN PHẨM
+                  TÌM KIẾM SẢN PHẨM
                 </Link>
                 <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-line)] bg-white text-[var(--color-brand)]">
                   +
@@ -91,10 +91,10 @@ export default function Home() {
 
         <div className="mt-8 text-center">
           <Link
-            href="/products"
+            href="/search"
             className="inline-flex items-center justify-center rounded-full border border-[var(--color-line)] bg-white px-5 py-3 text-sm font-bold text-[var(--color-ink)] transition hover:border-[var(--color-brand)]"
           >
-            Xem toàn bộ danh sách sản phẩm
+            Tìm kiếm thiết bị theo nhu cầu
           </Link>
         </div>
       </section>

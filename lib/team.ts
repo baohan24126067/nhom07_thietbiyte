@@ -18,7 +18,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: "TRẦN NGUYỄN GIA HÂN",
     studentId: "24126068",
-    role: "Đăng nhập, tìm kiếm, liên hệ, about, 404",
+    role: "Đăng nhập, đăng ký, tìm kiếm, liên hệ, about, 404",
     githubUrl: "https://github.com/24126068-arch",
     scope:
       "Phần 2.1 + 2.2: xây dựng trang đăng nhập và đăng ký; kiểm tra hợp lệ email, mật khẩu; tìm kiếm sản phẩm theo tên; hiển thị kết quả phù hợp; xây dựng trang liên hệ, giới thiệu nhóm và lỗi 404.",

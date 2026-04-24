@@ -202,16 +202,20 @@ function getBreadcrumbLabel(pathname: string) {
     return "Trang chủ > Tài khoản > Đăng nhập";
   }
 
+  if (pathname === "/register") {
+    return "Trang chủ > Tài khoản > Đăng ký";
+  }
+
   if (pathname === "/search") {
     return "Trang chủ > Tìm kiếm > Kết quả sản phẩm";
   }
 
   if (pathname === "/products") {
-    return "Trang chủ > Sản phẩm > Danh sách thiết bị y tế";
+    return "Trang chủ > Sản phẩm > Chờ bạn Thanh Ngân thực hiện";
   }
 
   if (pathname.startsWith("/products/")) {
-    return "Trang chủ > Sản phẩm > Chi tiết sản phẩm";
+    return "Trang chủ > Sản phẩm > Chờ bạn Bích Sơn thực hiện";
   }
 
   if (pathname === "/about") {
