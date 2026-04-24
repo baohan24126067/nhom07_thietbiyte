@@ -18,6 +18,10 @@ export default function AboutPage() {
               gia đình, kết hợp UI rõ ràng, luồng mua hàng mạch lạc và bộ trang
               hỗ trợ đầy đủ theo đúng yêu cầu đề bài.
             </p>
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--color-muted)]">
+              Danh sách bên dưới đã được cập nhật lại theo đúng file phân công Word,
+              bao gồm cả những thành viên chưa hoàn thiện phần code trong source hiện tại.
+            </p>
           </div>
           <Link
             href="/contact"
@@ -31,13 +35,13 @@ export default function AboutPage() {
       <section className="mt-6 grid gap-5 md:grid-cols-2">
         {teamMembers.map((member) => (
           <article
-            key={member.studentId}
+            key={`${member.name}-${member.studentId ?? "pending"}`}
             className="rounded-[28px] border border-[var(--color-line)] bg-white p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)]"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
-                  MSSV {member.studentId}
+                  {member.studentId ? `MSSV ${member.studentId}` : "MSSV đang cập nhật"}
                 </p>
                 <h2 className="mt-2 font-display text-[28px] font-extrabold leading-none text-[var(--color-ink)]">
                   {member.name}
