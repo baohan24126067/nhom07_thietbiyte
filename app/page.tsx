@@ -3,6 +3,7 @@ import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ProductIllustration } from "@/components/product-illustration";
 import { formatCurrency } from "@/lib/currency";
 import { getFeaturedProducts } from "@/lib/products";
+import { withBasePath } from "@/lib/site";
 
 export default function Home() {
   const featuredProducts = getFeaturedProducts();
@@ -13,6 +14,9 @@ export default function Home() {
         <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-[6px] bg-[linear-gradient(180deg,#f8fbff,#edf6ff)] p-5">
             <div className="space-y-4 pt-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                Thiết bị y tế tại nhà
+              </p>
               <h1 className="max-w-xl font-display text-[42px] font-extrabold leading-[0.98] tracking-tight text-[var(--color-ink)]">
                 Mua sắm <span className="text-[var(--color-brand)]">AN TÂM</span>
                 <br />
@@ -37,17 +41,13 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-[6px] border border-[var(--color-line)] bg-[linear-gradient(145deg,#cde7ff,#8ab8e7_55%,#dceeff)] p-4">
-            <div className="relative flex h-full min-h-[250px] items-end justify-end rounded-[4px] bg-[radial-gradient(circle_at_left,#eef7ff_0,#d4e9ff_38%,transparent_39%),linear-gradient(120deg,#c7e0f6,#93bde5)] px-6 py-6">
-              <div className="absolute left-6 top-6 space-y-2">
-                <div className="h-3 w-20 rounded-full bg-white/55" />
-                <div className="h-3 w-28 rounded-full bg-white/40" />
-              </div>
-              <div className="grid w-[68%] grid-cols-3 gap-3">
-                <div className="h-44 rounded-[90px] bg-[#6f98c0]" />
-                <div className="h-52 rounded-[90px] bg-[#87aed4]" />
-                <div className="h-48 rounded-[90px] bg-[#a2c4e8]" />
-              </div>
+          <div className="overflow-hidden rounded-[6px] border border-[var(--color-line)] bg-[linear-gradient(145deg,#cde7ff,#8ab8e7_55%,#dceeff)] p-3">
+            <div className="relative min-h-[250px] overflow-hidden rounded-[4px]">
+              <img
+                src={withBasePath("/assets/images/hero.jpg")}
+                alt="Gia đình tham khảo thiết bị y tế cùng đội ngũ bác sĩ"
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -84,12 +84,6 @@ export default function Home() {
                   productId={item.id}
                   className="inline-flex items-center justify-center rounded-[6px] bg-[var(--color-brand)] px-4 py-2 text-[12px] font-semibold text-white transition hover:bg-[var(--color-brand-deep)]"
                 />
-                <Link
-                  href={`/products/${item.slug}`}
-                  className="text-[12px] font-semibold text-[var(--color-brand-deep)] transition hover:text-[var(--color-brand)]"
-                >
-                  Xem chi tiết
-                </Link>
               </div>
             </article>
           ))}

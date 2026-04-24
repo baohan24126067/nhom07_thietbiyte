@@ -42,10 +42,20 @@ export default async function ProductDetailPage({
         <span className="font-semibold text-[var(--color-ink)]">{product.name}</span>
       </div>
 
-      <section className="grid gap-6 rounded-[32px] border border-[var(--color-line)] bg-white p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] lg:grid-cols-[0.9fr_1.1fr] sm:p-8 motion-safe motion-rise">
+      <section className="grid gap-6 rounded-[6px] border border-[var(--color-line)] bg-white p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] lg:grid-cols-[0.86fr_1.14fr] sm:p-8 motion-safe motion-rise">
         <div className="rounded-[28px] bg-[linear-gradient(180deg,#fefefe,#edf5fc)] p-8">
           <div className="flex aspect-square items-center justify-center rounded-[24px] bg-white shadow-[0_12px_30px_rgba(17,57,95,0.06)]">
             <ProductIllustration product={product} className="h-64 w-56" />
+          </div>
+          <div className="mt-4 grid grid-cols-4 gap-3">
+            {[product, ...relatedProducts].slice(0, 4).map((item, index) => (
+              <div
+                key={`${item.id}-${index}`}
+                className="flex aspect-square items-center justify-center rounded-[10px] border border-[var(--color-line)] bg-white p-2"
+              >
+                <ProductIllustration product={item} className="h-14 w-12" />
+              </div>
+            ))}
           </div>
         </div>
 
@@ -67,7 +77,7 @@ export default async function ProductDetailPage({
             {product.description}
           </p>
 
-          <div className="mt-6 rounded-[28px] bg-[var(--color-brand-soft)] p-5">
+          <div className="mt-6 rounded-[6px] bg-[var(--color-brand-soft)] p-5">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
@@ -109,42 +119,45 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      <section className="mt-6 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-        <article className="rounded-[28px] border border-[var(--color-line)] bg-white p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] motion-safe motion-rise">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
-            Thông số kỹ thuật
-          </p>
-          <div className="mt-5 space-y-3">
-            {product.specs.map((spec) => (
-              <div
-                key={spec.label}
-                className="flex items-center justify-between gap-4 rounded-[20px] bg-[var(--color-brand-soft)] px-4 py-3 text-sm"
-              >
-                <span className="font-semibold text-[var(--color-muted)]">{spec.label}</span>
-                <span className="text-right font-bold text-[var(--color-ink)]">{spec.value}</span>
-              </div>
-            ))}
+      <section className="mt-6 space-y-6">
+        <article className="rounded-[6px] border border-[var(--color-line)] bg-white p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] motion-safe motion-rise">
+          <div className="grid gap-6 lg:grid-cols-[0.34fr_0.66fr]">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
+              Thông số kỹ thuật
+            </p>
+            <div className="space-y-3">
+              {product.specs.map((spec) => (
+                <div
+                  key={spec.label}
+                  className="flex items-center justify-between gap-4 border-b border-[var(--color-line)] pb-3 text-sm"
+                >
+                  <span className="font-semibold text-[var(--color-muted)]">{spec.label}</span>
+                  <span className="text-right font-bold text-[var(--color-ink)]">{spec.value}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </article>
 
-        <article className="rounded-[28px] border border-[var(--color-line)] bg-white p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] motion-safe motion-rise">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
-            Lợi ích nổi bật
-          </p>
-          <div className="mt-5 grid gap-3">
-            {[
-              "Thiết kế phù hợp sử dụng tại nhà, thao tác đơn giản.",
-              "Dễ kết hợp với quy trình chăm sóc sức khỏe gia đình.",
-              "Thông tin sản phẩm rõ ràng, hỗ trợ ra quyết định nhanh.",
-              "Có thể thêm vào giỏ và thanh toán trực tiếp ngay trên website.",
-            ].map((benefit) => (
-              <div
-                key={benefit}
-                className="rounded-[20px] border border-[var(--color-line)] px-4 py-4 text-sm leading-6 text-[var(--color-ink)]"
-              >
-                {benefit}
-              </div>
-            ))}
+        <article className="rounded-[6px] border border-[var(--color-line)] bg-white p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] motion-safe motion-rise">
+          <div className="grid gap-6 lg:grid-cols-[0.34fr_0.66fr]">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
+              Mô tả và hướng dẫn sử dụng
+            </p>
+            <div className="space-y-4 text-sm leading-7 text-[var(--color-muted)]">
+              <p>
+                {product.description} Sản phẩm phù hợp cho nhu cầu chăm sóc sức khỏe
+                gia đình, ưu tiên thao tác dễ hiểu và thông tin rõ ràng.
+              </p>
+              <p>
+                Nên đọc kỹ hướng dẫn sử dụng, kiểm tra phụ kiện trước khi dùng và vệ
+                sinh đúng cách sau mỗi lần thao tác để đảm bảo độ bền và an toàn.
+              </p>
+              <p>
+                Trong trường hợp sử dụng cho người lớn tuổi hoặc người có bệnh nền,
+                nên kết hợp theo dõi cùng tư vấn của nhân viên y tế hoặc dược sĩ.
+              </p>
+            </div>
           </div>
         </article>
       </section>
