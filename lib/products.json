@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Máy massage Omron HV-F013",
+    "price": 1200000,
+    "unit": "Hộp",
+    "category": "Thiết bị y tế",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/640x0/filters:quality(90):format(webp)/MAY_MASSAGE_XUNG_DIEN_TRI_LIEU_OMRON_HV_F013_GIUP_GIAM_DAU_CO_VA_KHOP_00046354_23_58fa274523.png"
+  },
+  {
+    "id": 2,
+    "name": "Mặt nạ xông khí",
+    "price": 21000,
+    "unit": "Cái",
+    "category": "Dụng cụ y tế",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/640x0/filters:quality(90):format(webp)/00016410_mat_na_xong_khi_dung_aerrosol_mask_size_m_5233_62b9_large_8870a138d4.JPG"
+  },
+  {
+    "id": 3,
+    "name": "Đầu kim tiểu đường",
+    "price": 250000,
+    "unit": "Hộp",
+    "category": "Dụng cụ y tế",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/640x0/filters:quality(90):format(webp)/1_65f34f90ed.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Máy đo huyết áp",
+    "price": 699000,
+    "unit": "Hộp",
+    "category": "Thiết bị y tế",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/640x0/filters:quality(90):format(webp)/TUK_06291_4947d1ca62.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Nhiệt kế hồng ngoại",
+    "price": 501500,
+    "unit": "Cái",
+    "category": "Dụng cụ y tế",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/640x0/filters:quality(90):format(webp)/DSC_09751_ac0903b1b2.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Kim lấy máu Lancet Medicleen",
+    "price": 32000,
+    "unit": "Hộp",
+    "category": "Dụng cụ y tế",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/640x0/filters:quality(90):format(webp)/DSC_01277_0124dc1471.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Kim luồn tĩnh mạch Braun",
+    "price": 19000,
+    "unit": "Cái",
+    "category": "Dụng cụ y tế",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/640x0/filters:quality(90):format(webp)/00016007_9a0b3bae72.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Máy đo đường huyết Accu Chek Instant",
+    "price": 850000,
+    "unit": "Hộp",
+    "category": "Thiết bị y tế",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/640x0/filters:quality(90):format(webp)/DSC_01235_e69eb6b1c7.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Dây truyền dịch kim bướm Greetmed",
+    "price": 5000,
+    "unit": "Cái",
+    "category": "Dụng cụ y tế",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/640x0/filters:quality(90):format(webp)/DSC_00922_4ce4f9e4bd.jpg"
+  }
+]
