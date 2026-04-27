@@ -1,0 +1,65 @@
+[
+  {
+    "id": "omron-hvf013",
+    "name": "Máy massage xung điện trị liệu Omron HV-F013",
+    "category": "Thiết bị hỗ trợ trị liệu",
+    "price": 1200000,
+    "unit": "Hộp"
+  },
+  {
+    "id": "greentec-mask",
+    "name": "Mặt nạ xông khí dung Greentec nebulizer mask size M",
+    "category": "Phụ kiện khí dung",
+    "price": 21000,
+    "unit": "Cái"
+  },
+  {
+    "id": "pic-insupen",
+    "name": "Đầu kim tiểu đường 33G x 4mm Pic Insupen",
+    "category": "Chăm sóc tiểu đường",
+    "price": 250000,
+    "unit": "Hộp"
+  },
+  {
+    "id": "yuwell-ye610d",
+    "name": "Máy đo huyết áp bắp tay Yuwell YE610D",
+    "category": "Máy đo huyết áp",
+    "price": 699000,
+    "unit": "Hộp"
+  },
+  {
+    "id": "infrared-nc1",
+    "name": "Nhiệt kế hồng ngoại đo trán Yuwell YT-1C",
+    "category": "Nhiệt kế",
+    "price": 501500,
+    "unit": "Hộp"
+  },
+  {
+    "id": "lancet-medi",
+    "name": "Kim lấy máu Lancet Medicleen BL-28",
+    "category": "Tiêu hao y tế",
+    "price": 32000,
+    "unit": "Hộp"
+  },
+  {
+    "id": "braun-22g",
+    "name": "Kim luồn tĩnh mạch Braun 22G",
+    "category": "Tiêu hao y tế",
+    "price": 19000,
+    "unit": "Cái"
+  },
+  {
+    "id": "accu-chek-instant",
+    "name": "Máy đo đường huyết Accu-Chek Instant",
+    "category": "Chăm sóc tiểu đường",
+    "price": 850000,
+    "unit": "Hộp"
+  },
+  {
+    "id": "greetmed-butterfly-22g",
+    "name": "Dây truyền dịch kim bướm Greetmed 22G",
+    "category": "Tiêu hao y tế",
+    "price": 5000,
+    "unit": "Cái"
+  }
+]
