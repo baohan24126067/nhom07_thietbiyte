@@ -1,11 +1,29 @@
+ "use client";
+
+import { useMemo, useState } from "react";
 import { ProductCard } from "@/components/product-card";
 import catalogProducts from "@/lib/catalog-products.json";
 import { products } from "@/lib/products";
 
 export default function ProductsPage() {
-  const visibleProducts = products.filter((product) =>
-    catalogProducts.some((catalogProduct) => catalogProduct.id === product.id),
+  const [categoryFilter, setCategoryFilter] = useState("all");
+
+  const categories = useMemo(
+    () => Array.from(new Set(catalogProducts.map((product) => product.category))),
+    [],
   );
+
+  const visibleProducts = useMemo(() => {
+    const allowedIds = new Set(
+      catalogProducts
+        .filter(
+          (product) => categoryFilter === "all" || product.category === categoryFilter,
+        )
+        .map((product) => product.id),
+    );
+
+    return products.filter((product) => allowedIds.has(product.id));
+  }, [categoryFilter]);
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
@@ -27,6 +45,26 @@ export default function ProductsPage() {
             sản phẩm
           </div>
         </div>
+      </section>
+
+      <section className="mt-6 rounded-[8px] border border-[var(--color-line)] bg-white p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
+        <label className="block">
+          <span className="mb-2 block text-sm font-bold text-[var(--color-ink)]">
+            Danh mục
+          </span>
+          <select
+            value={categoryFilter}
+            onChange={(event) => setCategoryFilter(event.target.value)}
+            className="w-full rounded-[8px] border border-[var(--color-line)] bg-[var(--color-brand-soft)] px-4 py-3 text-sm font-semibold text-[var(--color-ink)] outline-none transition focus:border-[var(--color-brand)]"
+          >
+            <option value="all">Tất cả danh mục</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </label>
       </section>
 
       <section className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
