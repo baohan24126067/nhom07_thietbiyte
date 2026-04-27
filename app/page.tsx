@@ -61,18 +61,21 @@ export default function Home() {
               className="motion-safe motion-rise rounded-[6px] border border-[#e5edf5] bg-white p-4 shadow-[0_1px_0_rgba(255,255,255,0.65)]"
               style={{ animationDelay: `${index * 90}ms` }}
             >
-              <div
-                className="mb-4 flex aspect-[1/0.88] items-center justify-center rounded-[4px] bg-[linear-gradient(180deg,#fefefe,#edf5fc)]"
-                aria-hidden="true"
+              <Link
+                href={`/products/${item.slug}`}
+                className="mb-4 flex aspect-[1/0.88] items-center justify-center rounded-[4px] bg-[linear-gradient(180deg,#fefefe,#edf5fc)] p-4 transition hover:shadow-[inset_0_0_0_1px_rgba(27,141,238,0.22)]"
               >
                 <ProductIllustration
                   product={item}
-                  className={index === 1 ? "h-28 w-16" : "h-28 w-24"}
+                  className="h-44 w-full max-w-[240px]"
                 />
-              </div>
-              <h2 className="min-h-12 text-[14px] leading-5 text-[var(--color-ink)]">
+              </Link>
+              <Link
+                href={`/products/${item.slug}`}
+                className="block min-h-12 text-[14px] font-semibold leading-5 text-[var(--color-ink)] transition hover:text-[var(--color-brand-deep)]"
+              >
                 {item.name}
-              </h2>
+              </Link>
               <p className="mt-3 inline-flex rounded-[4px] bg-[var(--color-brand)] px-2 py-1 text-[12px] font-bold text-white">
                 {formatCurrency(item.price)} / {item.unit}
               </p>
@@ -84,6 +87,12 @@ export default function Home() {
                   productId={item.id}
                   className="inline-flex items-center justify-center rounded-[6px] bg-[var(--color-brand)] px-4 py-2 text-[12px] font-semibold text-white transition hover:bg-[var(--color-brand-deep)]"
                 />
+                <Link
+                  href={`/products/${item.slug}`}
+                  className="text-[12px] font-bold text-[var(--color-brand-deep)] transition hover:text-[var(--color-brand)]"
+                >
+                  Xem chi tiết
+                </Link>
               </div>
             </article>
           ))}
@@ -91,10 +100,10 @@ export default function Home() {
 
         <div className="mt-8 text-center">
           <Link
-            href="/search"
+            href="/products"
             className="inline-flex items-center justify-center rounded-full border border-[var(--color-line)] bg-white px-5 py-3 text-sm font-bold text-[var(--color-ink)] transition hover:border-[var(--color-brand)]"
           >
-            Tìm kiếm thiết bị theo nhu cầu
+            Xem toàn bộ danh mục
           </Link>
         </div>
       </section>

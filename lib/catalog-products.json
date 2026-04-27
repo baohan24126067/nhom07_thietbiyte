@@ -1,65 +1,36 @@
 [
-  {
-    "id": "omron-hvf013",
-    "name": "Máy massage xung điện trị liệu Omron HV-F013",
-    "category": "Thiết bị hỗ trợ trị liệu",
-    "price": 1200000,
-    "unit": "Hộp"
-  },
-  {
-    "id": "greentec-mask",
-    "name": "Mặt nạ xông khí dung Greentec nebulizer mask size M",
-    "category": "Phụ kiện khí dung",
-    "price": 21000,
-    "unit": "Cái"
-  },
-  {
-    "id": "pic-insupen",
-    "name": "Đầu kim tiểu đường 33G x 4mm Pic Insupen",
-    "category": "Chăm sóc tiểu đường",
-    "price": 250000,
-    "unit": "Hộp"
-  },
-  {
-    "id": "yuwell-ye610d",
-    "name": "Máy đo huyết áp bắp tay Yuwell YE610D",
-    "category": "Máy đo huyết áp",
-    "price": 699000,
-    "unit": "Hộp"
-  },
-  {
-    "id": "infrared-nc1",
-    "name": "Nhiệt kế hồng ngoại đo trán Yuwell YT-1C",
-    "category": "Nhiệt kế",
-    "price": 501500,
-    "unit": "Hộp"
-  },
-  {
-    "id": "lancet-medi",
-    "name": "Kim lấy máu Lancet Medicleen BL-28",
-    "category": "Tiêu hao y tế",
-    "price": 32000,
-    "unit": "Hộp"
-  },
-  {
-    "id": "braun-22g",
-    "name": "Kim luồn tĩnh mạch Braun 22G",
-    "category": "Tiêu hao y tế",
-    "price": 19000,
-    "unit": "Cái"
-  },
-  {
-    "id": "accu-chek-instant",
-    "name": "Máy đo đường huyết Accu-Chek Instant",
-    "category": "Chăm sóc tiểu đường",
-    "price": 850000,
-    "unit": "Hộp"
-  },
-  {
-    "id": "greetmed-butterfly-22g",
-    "name": "Dây truyền dịch kim bướm Greetmed 22G",
-    "category": "Tiêu hao y tế",
-    "price": 5000,
-    "unit": "Cái"
-  }
+  { "id": "omron-hvf013", "name": "Máy massage xung điện trị liệu Omron HV-F013", "category": "Thiết bị hỗ trợ trị liệu", "price": 1200000, "unit": "Hộp" },
+  { "id": "greentec-mask", "name": "Mặt nạ xông khí dung Greentec nebulizer mask size M", "category": "Phụ kiện khí dung", "price": 21000, "unit": "Cái" },
+  { "id": "pic-insupen", "name": "Đầu kim tiểu đường 33G x 4mm Pic Insupen", "category": "Chăm sóc tiểu đường", "price": 250000, "unit": "Hộp" },
+  { "id": "yuwell-ye610d", "name": "Máy đo huyết áp bắp tay Yuwell YE610D", "category": "Máy đo huyết áp", "price": 699000, "unit": "Hộp" },
+  { "id": "infrared-nc1", "name": "Nhiệt kế hồng ngoại đo trán Yuwell YT-1C", "category": "Nhiệt kế", "price": 501500, "unit": "Hộp" },
+  { "id": "lancet-medi", "name": "Kim lấy máu Lancet Medicleen BL-28", "category": "Tiêu hao y tế", "price": 32000, "unit": "Hộp" },
+  { "id": "braun-22g", "name": "Kim luồn tĩnh mạch Braun 22G", "category": "Tiêu hao y tế", "price": 19000, "unit": "Cái" },
+  { "id": "accu-chek-instant", "name": "Máy đo đường huyết Accu-Chek Instant", "category": "Chăm sóc tiểu đường", "price": 850000, "unit": "Hộp" },
+  { "id": "greetmed-butterfly-22g", "name": "Dây truyền dịch kim bướm Greetmed 22G", "category": "Tiêu hao y tế", "price": 5000, "unit": "Cái" },
+  { "id": "omron-pad-replacement", "name": "Miếng dán thay thế máy massage Omron HV-F013", "category": "Thiết bị hỗ trợ trị liệu", "price": 145000, "unit": "Bộ" },
+  { "id": "omron-lead-wire", "name": "Dây dẫn xung điện Omron cho máy trị liệu", "category": "Thiết bị hỗ trợ trị liệu", "price": 180000, "unit": "Cái" },
+  { "id": "greentec-child-mask", "name": "Mặt nạ xông khí dung Greentec trẻ em size S", "category": "Phụ kiện khí dung", "price": 19000, "unit": "Cái" },
+  { "id": "greentec-nebulizer-tube", "name": "Dây dẫn khí dung Greentec dài 2m", "category": "Phụ kiện khí dung", "price": 25000, "unit": "Cái" },
+  { "id": "insupen-32g-4mm", "name": "Đầu kim tiểu đường Pic Insupen 32G x 4mm", "category": "Chăm sóc tiểu đường", "price": 235000, "unit": "Hộp" },
+  { "id": "insupen-31g-6mm", "name": "Đầu kim tiểu đường Pic Insupen 31G x 6mm", "category": "Chăm sóc tiểu đường", "price": 225000, "unit": "Hộp" },
+  { "id": "yuwell-ye660e", "name": "Máy đo huyết áp bắp tay Yuwell YE660E", "category": "Máy đo huyết áp", "price": 790000, "unit": "Hộp" },
+  { "id": "yuwell-wrist-bp", "name": "Máy đo huyết áp cổ tay Yuwell YE8900A", "category": "Máy đo huyết áp", "price": 620000, "unit": "Hộp" },
+  { "id": "yuwell-yt2c", "name": "Nhiệt kế hồng ngoại Yuwell YT-2C", "category": "Nhiệt kế", "price": 560000, "unit": "Hộp" },
+  { "id": "infrared-family-kit", "name": "Bộ nhiệt kế hồng ngoại gia đình Yuwell", "category": "Nhiệt kế", "price": 610000, "unit": "Bộ" },
+  { "id": "lancet-30g", "name": "Kim lấy máu Lancet Medicleen 30G", "category": "Tiêu hao y tế", "price": 36000, "unit": "Hộp" },
+  { "id": "lancet-28g-blue", "name": "Kim lấy máu Lancet BL-28 xanh", "category": "Tiêu hao y tế", "price": 33000, "unit": "Hộp" },
+  { "id": "braun-20g", "name": "Kim luồn tĩnh mạch Braun 20G", "category": "Tiêu hao y tế", "price": 21000, "unit": "Cái" },
+  { "id": "accu-chek-strips-50", "name": "Que thử đường huyết Accu-Chek Instant 50 que", "category": "Chăm sóc tiểu đường", "price": 390000, "unit": "Hộp" },
+  { "id": "accu-chek-lancet-kit", "name": "Bộ kim và bút lấy máu Accu-Chek", "category": "Chăm sóc tiểu đường", "price": 210000, "unit": "Bộ" },
+  { "id": "butterfly-23g", "name": "Dây truyền dịch kim bướm Greetmed 23G", "category": "Tiêu hao y tế", "price": 6000, "unit": "Cái" },
+  { "id": "butterfly-24g", "name": "Dây truyền dịch kim bướm Greetmed 24G", "category": "Tiêu hao y tế", "price": 6500, "unit": "Cái" },
+  { "id": "family-care-combo", "name": "Combo chăm sóc sức khỏe gia đình MediCare", "category": "Combo chăm sóc", "price": 1290000, "unit": "Bộ" },
+  { "id": "therapy-home-combo", "name": "Combo trị liệu cơ xương khớp tại nhà", "category": "Combo chăm sóc", "price": 1380000, "unit": "Bộ" },
+  { "id": "respiratory-care-combo", "name": "Combo phụ kiện khí dung gia đình", "category": "Combo chăm sóc", "price": 125000, "unit": "Bộ" },
+  { "id": "diabetes-care-combo", "name": "Combo chăm sóc tiểu đường Accu-Chek", "category": "Combo chăm sóc", "price": 1190000, "unit": "Bộ" },
+  { "id": "sterile-gauze-10x10", "name": "Gạc vô trùng MediCare 10 x 10cm", "category": "Tiêu hao y tế", "price": 45000, "unit": "Hộp" },
+  { "id": "medical-tape-2-5", "name": "Băng keo y tế MediCare 2.5cm", "category": "Tiêu hao y tế", "price": 18000, "unit": "Cuộn" },
+  { "id": "alcohol-swab-box", "name": "Bông tẩm cồn sát khuẩn MediCare", "category": "Tiêu hao y tế", "price": 52000, "unit": "Hộp" },
+  { "id": "pulse-oximeter-fingertip", "name": "Máy đo SpO2 đầu ngón tay MediCare", "category": "Thiết bị hỗ trợ trị liệu", "price": 390000, "unit": "Hộp" }
 ]

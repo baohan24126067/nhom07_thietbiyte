@@ -15,11 +15,11 @@ export function ProductCard({
     <article className="rounded-[6px] border border-[var(--color-line)] bg-white p-4 shadow-[0_1px_0_rgba(255,255,255,0.65)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(17,57,95,0.10)] motion-safe">
       <Link
         href={`/products/${product.slug}`}
-        className="flex aspect-[1/0.82] items-center justify-center rounded-[4px] bg-[linear-gradient(180deg,#fefefe,#edf5fc)] p-5"
+        className="flex aspect-[1/0.82] items-center justify-center rounded-[4px] bg-[linear-gradient(180deg,#fefefe,#edf5fc)] p-4"
       >
         <ProductIllustration
           product={product}
-          className={compact ? "h-28 w-24" : "h-40 w-36"}
+          className={compact ? "h-36 w-full max-w-[180px]" : "h-52 w-full max-w-[260px]"}
         />
       </Link>
       <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
