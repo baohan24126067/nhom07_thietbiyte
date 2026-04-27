@@ -54,36 +54,55 @@ export default function FaqPage() {
           </div>
 
           <div className="rounded-[6px] border border-[var(--color-line)] bg-[linear-gradient(160deg,#d7ebff,#eef6ff)] p-5">
-            <div className="grid h-full gap-4 sm:grid-cols-2">
-              <div className="rounded-[6px] bg-white p-5">
+            <div className="grid gap-4 sm:grid-cols-[0.95fr_1.05fr]">
+              <div className="rounded-[6px] bg-white p-5 shadow-[0_1px_0_rgba(255,255,255,0.65)]">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-brand)]">
-                  Tín hiệu thị giác
+                  Hỗ trợ nhanh
                 </p>
-                <div className="mt-4 space-y-4">
-                  <div className="h-28 rounded-[6px] bg-[linear-gradient(145deg,#1b89ea,#66b6ff)]" />
-                  <div className="h-3 w-28 rounded-full bg-[#c8ddef]" />
-                  <div className="h-3 w-40 rounded-full bg-[#d6e7f6]" />
-                  <div className="h-3 w-24 rounded-full bg-[#e1edf8]" />
+                <div className="mt-4 rounded-[6px] bg-[linear-gradient(145deg,#1694ff,#65bbff)] p-5 text-white">
+                  <p className="text-sm font-semibold opacity-90">Tư vấn thiết bị</p>
+                  <p className="mt-2 font-display text-[34px] font-extrabold leading-none">
+                    1900 6868
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-white/85">
+                    Gợi ý sản phẩm theo nhu cầu đo huyết áp, đường huyết, khí dung
+                    và chăm sóc tại nhà.
+                  </p>
                 </div>
+                <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
+                  <div className="rounded-[6px] bg-[var(--color-brand-soft)] p-3">
+                    <dt className="font-bold text-[var(--color-ink)]">4 nhóm</dt>
+                    <dd className="mt-1 text-[var(--color-muted)]">câu hỏi chính</dd>
+                  </div>
+                  <div className="rounded-[6px] bg-[var(--color-brand-soft)] p-3">
+                    <dt className="font-bold text-[var(--color-ink)]">12+</dt>
+                    <dd className="mt-1 text-[var(--color-muted)]">tình huống FAQ</dd>
+                  </div>
+                </dl>
               </div>
-              <div className="rounded-[6px] bg-white p-5">
+
+              <div className="rounded-[6px] bg-white p-5 shadow-[0_1px_0_rgba(255,255,255,0.65)]">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-brand)]">
-                  Mục tiêu trang
+                  Kiểm tra trước khi dùng
                 </p>
-                <div className="mt-4 space-y-4 text-sm leading-6 text-[var(--color-muted)]">
-                  <p>
-                    Trả lời các thắc mắc ngắn, rõ và dễ đọc, đúng tinh thần giao
-                    diện của file Figma.
-                  </p>
-                  <p>
-                    Bổ sung nội dung để website có chiều sâu hơn ngoài các trang
-                    mua hàng bắt buộc.
-                  </p>
-                  <p>
-                    Giữ cùng palette xanh - trắng để liền mạch với Home và các
-                    page nhóm sẽ làm sau.
-                  </p>
-                </div>
+                <ul className="mt-4 space-y-3 text-sm leading-6 text-[var(--color-muted)]">
+                  {[
+                    "Đọc nhanh hướng dẫn sử dụng và cảnh báo của nhà sản xuất.",
+                    "Kiểm tra pin, dây dẫn, đầu kim, mặt nạ hoặc phụ kiện đi kèm.",
+                    "Vệ sinh thiết bị sau khi dùng và bảo quản ở nơi khô thoáng.",
+                    "Liên hệ cơ sở y tế nếu kết quả đo bất thường hoặc triệu chứng nặng.",
+                  ].map((item, index) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 rounded-[6px] border border-[var(--color-line)] px-3 py-3"
+                    >
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)] text-xs font-bold text-white">
+                        {index + 1}
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
