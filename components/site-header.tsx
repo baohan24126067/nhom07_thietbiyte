@@ -8,7 +8,7 @@ import { SiteSearchForm } from "@/components/site-search-form";
 
 const navItems = [
   { href: "/", label: "Home", glyph: "⌂", available: true },
-  { href: "/search", label: "Products", glyph: "◫", available: true },
+  { href: "/products", label: "Products", glyph: "◫", available: true },
   { href: "/about", label: "About", glyph: "ⓘ", available: true },
   { href: "/contact", label: "Contact", glyph: "✉", available: true },
   { href: "/cart", label: "Cart", glyph: "🛒", available: true },
@@ -211,11 +211,11 @@ function getBreadcrumbLabel(pathname: string) {
   }
 
   if (pathname === "/products") {
-    return "Trang chủ > Sản phẩm > Chờ bạn Thanh Ngân thực hiện";
+    return "Trang chủ > Sản phẩm > Danh sách thiết bị y tế";
   }
 
   if (pathname.startsWith("/products/")) {
-    return "Trang chủ > Sản phẩm > Chờ bạn Bích Sơn thực hiện";
+    return "Trang chủ > Sản phẩm > Chi tiết sản phẩm";
   }
 
   if (pathname === "/about") {
