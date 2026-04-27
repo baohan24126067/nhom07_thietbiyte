@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { Product } from "@/lib/products";
 import { withBasePath } from "@/lib/site";
 
@@ -11,12 +10,11 @@ export function ProductIllustration({
 }) {
   return (
     <div className={`relative overflow-hidden rounded-2xl ${className}`}>
-      <Image
+      <img
         src={withBasePath(product.imagePath)}
         alt={product.imageAlt}
-        fill
-        className="object-contain p-1"
-        sizes="(max-width: 768px) 180px, 260px"
+        className="h-full w-full object-contain p-1"
+        loading="lazy"
       />
     </div>
   );
