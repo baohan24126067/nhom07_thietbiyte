@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/components/cart-provider";
 import { SiteSearchForm } from "@/components/site-search-form";
+import { withBasePath } from "@/lib/site";
 
 const navItems = [
   { href: "/", label: "Home", glyph: "⌂", available: true },
@@ -28,18 +29,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-20 border-b border-[var(--color-line)] bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-5 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-[var(--color-brand)] text-xs font-extrabold text-white">
-            M
-          </span>
-          <span className="space-y-0">
-            <span className="block font-display text-sm font-extrabold tracking-tight text-[var(--color-ink)]">
-              MEDICARE
-            </span>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-muted)]">
-              Medical Equipment
-            </span>
-          </span>
+        <Link href="/" className="flex items-center">
+          <img
+            src={withBasePath("/assets/images/medicare-logo.svg")}
+            alt="MediCare - Thiết bị y tế chính hãng"
+            className="h-12 w-auto max-w-[190px] object-contain sm:h-14 sm:max-w-[230px]"
+          />
         </Link>
 
         <button
