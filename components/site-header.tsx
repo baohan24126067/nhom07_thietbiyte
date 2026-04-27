@@ -165,11 +165,11 @@ export function SiteHeader() {
       ) : null}
 
       <div className="border-t border-[var(--color-line)] bg-[var(--color-surface)]">
-        <div className="mx-auto flex w-full max-w-7xl items-center gap-4 px-4 py-2.5 sm:px-6 lg:px-8">
-          <p className="hidden text-[11px] text-[var(--color-muted)] md:block">
+        <div className="mx-auto flex w-full items-center gap-4 px-5 py-2.5 sm:px-8 lg:px-[2.1vw]">
+          <p className="hidden min-w-0 flex-1 truncate text-[11px] text-[var(--color-muted)] md:block">
             {breadcrumbLabel}
           </p>
-          <div className="md:ml-auto md:w-[20rem]">
+          <div className="w-full md:ml-auto md:w-[23vw] md:min-w-[18rem] md:max-w-[30rem]">
             <Suspense fallback={<SearchFallback />}>
               <SiteSearchForm />
             </Suspense>
