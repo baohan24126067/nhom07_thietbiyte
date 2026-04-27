@@ -91,20 +91,10 @@ export default function Home() {
   return (
     <div className="bg-background pb-20 transition-colors duration-300">
       <section className="w-full">
-        <div className="relative w-full overflow-hidden bg-surface transition-colors">
-          <div className="relative min-h-[400px] w-full">
-            <div className="absolute inset-0 z-0 opacity-30 sm:opacity-100">
-              <Image
-                src="/assets/images/hero.jpg"
-                alt="Gia đình chăm sóc sức khỏe cùng MediCare"
-                fill
-                className="object-contain object-right"
-                priority
-              />
-            </div>
-
-            <div className="relative z-10 flex min-h-[360px] flex-col justify-center px-6 sm:px-12 md:px-16 lg:px-24">
-              <div className="max-w-2xl space-y-6">
+        <div className="mx-auto w-full max-w-7xl px-4 pt-5 sm:px-6 lg:px-8">
+          <div className="grid overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#f6fbff,#cfe9ff)] shadow-[0_20px_60px_rgba(17,57,95,0.08)] lg:grid-cols-[0.88fr_1.12fr]">
+            <div className="relative z-10 flex min-h-[330px] flex-col justify-center px-6 py-10 sm:px-10 lg:px-12">
+              <div className="max-w-xl space-y-6">
                 <h1 className="font-display text-[28px] font-extrabold leading-[1.2] tracking-tight text-foreground sm:text-[36px] md:text-[54px]">
                   Mua sắm <span className="text-brand">AN TÂM</span>
                   <br className="hidden sm:block" />{" "}
@@ -123,7 +113,16 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent sm:via-background/60" />
+            <div className="relative min-h-[220px] overflow-hidden border-t border-white/60 bg-[#cfe8ff] lg:min-h-[330px] lg:border-l lg:border-t-0">
+              <Image
+                src="/assets/images/hero.jpg"
+                alt="Gia đình chăm sóc sức khỏe cùng MediCare"
+                fill
+                className="object-cover object-center"
+                priority
+              />
+              <div className="absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-[#dff1ff] to-transparent lg:block" />
+            </div>
           </div>
         </div>
       </section>
