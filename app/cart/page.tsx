@@ -159,6 +159,21 @@ export default function CartPage() {
               Dùng thử <strong>MEDI10</strong> hoặc <strong>FREESHIP</strong> để
               kiểm tra flow giảm giá.
             </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {["MEDI10", "FREESHIP"].map((code) => (
+                <button
+                  key={code}
+                  type="button"
+                  onClick={() => {
+                    setCouponInput(code);
+                    setCouponMessage(`Đã chọn mã ${code}. Bấm áp dụng để kiểm tra.`);
+                  }}
+                  className="rounded-full border border-[var(--color-line)] bg-[var(--color-brand-soft)] px-3 py-1.5 text-xs font-bold text-[var(--color-brand-deep)] transition hover:border-[var(--color-brand)]"
+                >
+                  {code}
+                </button>
+              ))}
+            </div>
             <div className="mt-4 flex gap-3">
               <input
                 value={couponInput}
