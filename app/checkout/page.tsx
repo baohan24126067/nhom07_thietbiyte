@@ -339,6 +339,17 @@ export default function CheckoutPage() {
                 </strong>
               </div>
             </div>
+
+            <div className="mt-4 rounded-[24px] border border-[var(--color-line)] bg-[var(--color-brand-soft)] p-4">
+              <p className="text-sm font-bold text-[var(--color-ink)]">
+                Cam kết khi thanh toán
+              </p>
+              <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-muted)]">
+                <li>Nhân viên gọi xác nhận trước khi giao thiết bị y tế.</li>
+                <li>Được kiểm tra sản phẩm và hoá đơn khi nhận hàng.</li>
+                <li>Thông tin đặt hàng chỉ dùng để xử lý giao hàng.</li>
+              </ul>
+            </div>
           </aside>
         </div>
       )}
