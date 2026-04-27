@@ -91,9 +91,9 @@ export default function Home() {
   return (
     <div className="bg-background pb-20 transition-colors duration-300">
       <section className="w-full">
-        <div className="mx-auto w-full max-w-[1280px] pt-[66px]">
-          <div className="relative min-h-[400px] overflow-hidden bg-[var(--color-surface)]">
-            <div className="absolute left-[300px] top-[15px] hidden h-[361px] w-[calc(100%-312px)] overflow-hidden lg:block">
+        <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden bg-[var(--color-surface)] lg:aspect-[3.2/1]">
+          <div className="relative min-h-[400px] w-full overflow-hidden lg:h-full lg:min-h-0">
+            <div className="absolute left-[23.44%] top-[3.75%] hidden h-[90.25%] w-[75.63%] overflow-hidden lg:block">
               <img
                 src={withBasePath("/assets/images/hero.jpg")}
                 alt="Gia đình chăm sóc sức khỏe cùng MediCare"
@@ -108,18 +108,18 @@ export default function Home() {
               />
             </div>
 
-            <div className="relative z-10 px-5 py-8 lg:absolute lg:left-[27px] lg:top-[45px] lg:w-[525px] lg:p-0">
-              <h1 className="max-w-[486px] font-display text-[34px] font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-[42px] lg:text-[48px]">
+            <div className="relative z-10 px-5 py-8 lg:absolute lg:left-[2.11%] lg:top-[11.25%] lg:w-[41.02%] lg:p-0">
+              <h1 className="max-w-[486px] font-display text-[34px] font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-[42px] lg:text-[clamp(32px,3.75vw,48px)]">
                 Mua sắm <span className="text-brand">AN TÂM</span> —{" "}
                 <span className="text-brand">SỐNG KHỎE</span> Mỗi ngày
               </h1>
-              <p className="mt-4 max-w-[515px] text-[18px] font-medium leading-[1.55] text-muted lg:mt-[10px] lg:text-[22px]">
+              <p className="mt-4 max-w-[515px] text-[18px] font-medium leading-[1.55] text-muted lg:mt-[10px] lg:text-[clamp(16px,1.72vw,22px)]">
                 MediShop đồng hành cùng gia đình bạn trên hành trình chăm sóc
                 sức khỏe mỗi ngày.
               </p>
               <Link
                 href="/products"
-                className="mt-5 inline-flex h-[59px] w-[238px] items-center justify-center rounded-[8px] bg-brand text-[18px] font-bold uppercase tracking-wide text-white transition hover:bg-brand-deep lg:ml-[116px] lg:mt-[10px]"
+                className="mt-5 inline-flex h-[59px] w-[238px] items-center justify-center rounded-[8px] bg-brand text-[18px] font-bold uppercase tracking-wide text-white transition hover:bg-brand-deep lg:ml-[22.1%] lg:mt-[10px]"
               >
                 Khám phá ngay
               </Link>
