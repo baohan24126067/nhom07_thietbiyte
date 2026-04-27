@@ -32,6 +32,9 @@ Website bán thiết bị y tế tại nhà được xây dựng cho học phầ
 ## 3. Link dự án
 
 - **Figma view-only:** https://www.figma.com/design/M23P3OxhEhCE7il6dnzoKN/Medical-Equipment?node-id=0-1&p=f&t=Cyr3LEOTjthMpP0s-0
+- **Figma Mockup 1:** https://www.figma.com/design/M23P3OxhEhCE7il6dnzoKN/Medical-Equipment?node-id=0-1&p=f&t=Cyr3LEOTjthMpP0s-0
+- **Figma Wireframe:** https://www.figma.com/design/M23P3OxhEhCE7il6dnzoKN/Medical-Equipment?node-id=128-337&p=f&t=Cyr3LEOTjthMpP0s-0
+- **Figma Mockup 2:** https://www.figma.com/design/M23P3OxhEhCE7il6dnzoKN/Medical-Equipment?node-id=2-2&p=f&t=Cyr3LEOTjthMpP0s-0
 - **GitHub Pages:** https://baohan24126067.github.io/nhom07_thietbiyte/
 - **Repository:** https://github.com/baohan24126067/nhom07_thietbiyte
 
@@ -180,3 +183,13 @@ Hướng phát triển tiếp theo:
 - Thêm kiểm thử E2E cho toàn bộ luồng mua hàng.
 - Tối ưu responsive chi tiết hơn cho nhiều kích thước màn hình.
 - Chuẩn hóa thêm nội dung SEO và metadata cho từng sản phẩm.
+
+## 11. Hồ sơ nộp bài
+
+Các mục cần nộp đã được gom trong thư mục:
+
+```text
+submission/
+```
+
+Thư mục này gồm link Figma mockup/wireframe, link GitHub repository public, link GitHub Pages và ảnh chụp giao diện. Các phần Word, PowerPoint và YouTube không được đưa vào vì chưa nằm trong phạm vi cần bổ sung hiện tại.
