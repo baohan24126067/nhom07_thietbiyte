@@ -27,6 +27,7 @@ export const teamMembers: TeamMember[] = [
     name: "LÊ THỊ HẢI YẾN",
     studentId: "24126286",
     role: "Home + Layout + Responsive",
+    githubUrl: "https://github.com/24126286-art",
     scope:
       "Phần 2.2: xây dựng layout chung với container, grid, flex; code hoàn chỉnh trang Home theo Figma; làm responsive mobile, tablet, desktop; điều chỉnh số cột sản phẩm; fix lỗi giao diện; hỗ trợ hoàn thiện hình thức file Word.",
   },
@@ -39,20 +40,26 @@ export const teamMembers: TeamMember[] = [
       "Phần 2.1 + 2.2: xây dựng trang giỏ hàng; thêm, xoá, cập nhật số lượng; tự động tính tổng tiền; xây dựng checkout; form thông tin người dùng; xử lý đặt hàng; quản lý dữ liệu giỏ hàng bằng state management.",
   },
   {
-    name: "XUÂN SINH",
+    name: "MAI THỊ XUÂN SINH",
+    studentId: "24126191",
     role: "UI/UX + Figma",
+    githubUrl: "https://github.com/XSinh1",
     scope:
       "Thiết kế Figma tổng thể; chốt màu chủ đạo xanh - trắng, màu các nút, font chữ, cỡ chữ; chia sẻ file để cả nhóm đồng bộ giao diện và bám đúng style khi code.",
   },
   {
-    name: "THANH NGÂN",
+    name: "NGUYỄN ĐÀO THANH NGÂN",
+    studentId: "24126145",
     role: "Danh sách sản phẩm",
+    githubUrl: "https://github.com/24126145-crypto",
     scope:
       "Phần 2.1 + 2.2: xây dựng trang danh sách sản phẩm theo Figma; hiển thị lưới hình ảnh, tên, giá; lọc theo giá và loại; sắp xếp tăng giảm; phân trang hoặc cuộn vô hạn; quản lý dữ liệu sản phẩm bằng file JSON.",
   },
   {
-    name: "BÍCH SƠN",
+    name: "LÊ NGỌC BÍCH SƠN",
+    studentId: "24126193",
     role: "Chi tiết sản phẩm",
+    githubUrl: "https://github.com/24126193-bson",
     scope:
       "Phần 2.1 + 2.2: xây dựng trang chi tiết sản phẩm; gallery ảnh; hiển thị tên, giá, mô tả; thông số kỹ thuật và hướng dẫn sử dụng; chức năng thêm vào giỏ hàng; sản phẩm liên quan.",
   },
