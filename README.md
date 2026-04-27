@@ -18,23 +18,24 @@ Website bán thiết bị y tế tại nhà được xây dựng cho bài thi Th
 - trang đặc trưng theo chủ đề: `FAQ`
 - baseline deploy GitHub Pages
 - giỏ hàng và thanh toán
-- đăng nhập, tìm kiếm, liên hệ, about, 404
-
-Các phần còn thiếu theo đề bài sẽ tiếp tục phát triển trên cùng nền này:
-
-- danh sách sản phẩm
-- chi tiết sản phẩm
+- đăng nhập, đăng ký, tìm kiếm, liên hệ, about, 404
+- danh sách sản phẩm với filter, sort, phân trang và dữ liệu JSON
+- chi tiết sản phẩm với gallery, mô tả, hướng dẫn sử dụng và sản phẩm liên quan
 
 ## Các route đang có
 
 - `/` : Trang chủ foundation của Medishop
 - `/faq` : Trang câu hỏi thường gặp về thiết bị y tế tại nhà
+- `/products` : Danh sách sản phẩm, lọc theo loại/giá, sắp xếp và phân trang
+- `/products/[slug]` : Chi tiết sản phẩm, gallery, thông số và hướng dẫn sử dụng
 - `/cart` : Giỏ hàng
 - `/checkout` : Thanh toán
 - `/login` : Đăng nhập
+- `/register` : Đăng ký tài khoản
 - `/search` : Tìm kiếm sản phẩm
 - `/about` : Giới thiệu nhóm
 - `/contact` : Liên hệ
+- `/_not-found` : Trang lỗi 404 thân thiện
 
 ## Chạy local
 
@@ -85,15 +86,30 @@ Thiết lập cần có trên GitHub:
 
 ```text
 app/
+  about/
+  cart/
+  checkout/
+  contact/
   faq/
+  login/
+  products/
+  register/
+  search/
   globals.css
   layout.tsx
   page.tsx
 components/
+  cart-provider.tsx
+  product-card.tsx
   site-footer.tsx
   site-header.tsx
 lib/
+  catalog-products.json
+  cart.ts
   faq-content.ts
+  products.ts
+  search.ts
+  team.ts
 ```
 
 ## Ghi chú theo phân công
@@ -102,5 +118,8 @@ lib/
 - **Hồng Hậu**: triển khai giỏ hàng, thanh toán và các trạng thái đơn phía client.
 - **Gia Hân**: triển khai đăng nhập, tìm kiếm, liên hệ, about và trang lỗi 404.
 - **Hải Yến**: cung cấp bộ giao diện tĩnh HTML/CSS/JS và tài liệu tích hợp ban đầu.
+- **Thanh Ngân**: triển khai danh sách sản phẩm, lọc, sắp xếp, phân trang và dữ liệu JSON.
+- **Bích Sơn**: triển khai chi tiết sản phẩm, gallery, hướng dẫn sử dụng và sản phẩm liên quan.
+- **Xuân Sinh**: phụ trách UI/UX, Figma, màu sắc, font và asset tham chiếu.
 
 Mỗi phần việc được tách thành nhiều checkpoint commit để thuận lợi cho chấm điểm đóng góp cá nhân trên GitHub.
