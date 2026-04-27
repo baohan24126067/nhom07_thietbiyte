@@ -31,9 +31,9 @@ export function SiteHeader() {
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-5 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center">
           <img
-            src={withBasePath("/assets/images/medicare-logo.svg")}
+            src={withBasePath("/assets/images/medicare-logo.jpg")}
             alt="MediCare - Thiết bị y tế chính hãng"
-            className="h-12 w-auto max-w-[190px] object-contain sm:h-14 sm:max-w-[230px]"
+            className="h-12 w-auto max-w-[190px] rounded-md object-contain sm:h-14 sm:max-w-[230px]"
           />
         </Link>
 

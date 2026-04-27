@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ProductCard } from "@/components/product-card";
 import { useCart } from "@/components/cart-provider";
 import { formatCurrency } from "@/lib/currency";
 import { products } from "@/lib/products";
+import { withBasePath } from "@/lib/site";
 
 const PRICE_RANGES = [
   { label: "Tất cả giá", min: 0, max: Number.POSITIVE_INFINITY },
@@ -91,37 +91,38 @@ export default function Home() {
   return (
     <div className="bg-background pb-20 transition-colors duration-300">
       <section className="w-full">
-        <div className="mx-auto w-full max-w-7xl px-4 pt-5 sm:px-6 lg:px-8">
-          <div className="grid overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#f6fbff,#cfe9ff)] shadow-[0_20px_60px_rgba(17,57,95,0.08)] lg:grid-cols-[0.88fr_1.12fr]">
-            <div className="relative z-10 flex min-h-[330px] flex-col justify-center px-6 py-10 sm:px-10 lg:px-12">
-              <div className="max-w-xl space-y-6">
-                <h1 className="font-display text-[28px] font-extrabold leading-[1.2] tracking-tight text-foreground sm:text-[36px] md:text-[54px]">
-                  Mua sắm <span className="text-brand">AN TÂM</span>
-                  <br className="hidden sm:block" />{" "}
-                  <span className="text-brand">SỐNG KHỎE</span> mỗi ngày
-                </h1>
-                <p className="max-w-md text-[14px] font-medium leading-relaxed text-muted sm:text-[16px]">
-                  MediShop đồng hành cùng gia đình bạn trên hành trình chăm sóc
-                  sức khỏe mỗi ngày.
-                </p>
-                <Link
-                  href="/products"
-                  className="inline-flex items-center justify-center rounded-[10px] bg-brand px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-brand-deep active:scale-95 sm:px-10 sm:py-3.5 sm:text-base"
-                >
-                  Khám phá ngay
-                </Link>
-              </div>
+        <div className="mx-auto w-full max-w-[1280px] pt-[66px]">
+          <div className="relative min-h-[400px] overflow-hidden bg-[var(--color-surface)]">
+            <div className="absolute left-[300px] top-[15px] hidden h-[361px] w-[calc(100%-312px)] overflow-hidden lg:block">
+              <img
+                src={withBasePath("/assets/images/hero.jpg")}
+                alt="Gia đình chăm sóc sức khỏe cùng MediCare"
+                className="absolute inset-0 h-full w-full object-cover object-center"
+              />
+            </div>
+            <div className="relative h-[230px] overflow-hidden lg:hidden">
+              <img
+                src={withBasePath("/assets/images/hero.jpg")}
+                alt="Gia đình chăm sóc sức khỏe cùng MediCare"
+                className="h-full w-full object-cover object-center"
+              />
             </div>
 
-            <div className="relative min-h-[220px] overflow-hidden border-t border-white/60 bg-[#cfe8ff] lg:min-h-[330px] lg:border-l lg:border-t-0">
-              <Image
-                src="/assets/images/hero.jpg"
-                alt="Gia đình chăm sóc sức khỏe cùng MediCare"
-                fill
-                className="object-cover object-center"
-                priority
-              />
-              <div className="absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-[#dff1ff] to-transparent lg:block" />
+            <div className="relative z-10 px-5 py-8 lg:absolute lg:left-[27px] lg:top-[45px] lg:w-[525px] lg:p-0">
+              <h1 className="max-w-[486px] font-display text-[34px] font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-[42px] lg:text-[48px]">
+                Mua sắm <span className="text-brand">AN TÂM</span> —{" "}
+                <span className="text-brand">SỐNG KHỎE</span> Mỗi ngày
+              </h1>
+              <p className="mt-4 max-w-[515px] text-[18px] font-medium leading-[1.55] text-muted lg:mt-[10px] lg:text-[22px]">
+                MediShop đồng hành cùng gia đình bạn trên hành trình chăm sóc
+                sức khỏe mỗi ngày.
+              </p>
+              <Link
+                href="/products"
+                className="mt-5 inline-flex h-[59px] w-[238px] items-center justify-center rounded-[8px] bg-brand text-[18px] font-bold uppercase tracking-wide text-white transition hover:bg-brand-deep lg:ml-[116px] lg:mt-[10px]"
+              >
+                Khám phá ngay
+              </Link>
             </div>
           </div>
         </div>
@@ -186,11 +187,10 @@ export default function Home() {
 
             <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#38bdf8]/20 blur-3xl" />
             <div className="absolute bottom-0 right-0 h-52 w-52 opacity-20">
-              <Image
-                src="/assets/images/product-1.jpg"
+              <img
+                src={withBasePath("/assets/images/product-1.jpg")}
                 alt=""
-                fill
-                className="object-contain"
+                className="absolute inset-0 h-full w-full object-contain"
               />
             </div>
           </div>

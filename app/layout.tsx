@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   },
   description:
     "Medicare là nền tảng giới thiệu và phân phối thiết bị y tế gia đình với giao diện hiện đại, rõ ràng và đáng tin cậy.",
+  icons: {
+    icon: "/icon.jpg",
+    shortcut: "/icon.jpg",
+    apple: "/icon.jpg",
+  },
 };
 
 export default function RootLayout({

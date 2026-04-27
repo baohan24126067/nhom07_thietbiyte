@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { withBasePath } from "@/lib/site";
 
 type FooterItem = {
   label: string;
@@ -30,9 +31,12 @@ const footerColumns: Array<{ title: string; items: FooterItem[] }> = [
   {
     title: "LIÊN HỆ",
     items: [
-      { label: "Địa chỉ: Quận 1, TP. Hồ Chí Minh" },
+      {
+        label:
+          "Địa chỉ: 91 Võ Văn Ngân, Phường Linh Chiểu, TP. Thủ Đức, TP. Hồ Chí Minh",
+      },
       { label: "Hotline: 1900 24 85" },
-      { label: "Email: contact@medishop.vn" },
+      { label: "Email: 24126067@student.hcmute.edu.vn" },
     ],
   },
 ];
@@ -43,17 +47,11 @@ export function SiteFooter() {
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[1.15fr_repeat(3,1fr)] lg:px-8">
         <div className="space-y-4 text-sm">
           <div className="flex items-center gap-3">
-            <span className="flex h-8 w-8 items-center justify-center rounded-md bg-[#1e88e5] font-display text-sm font-bold">
-              M
-            </span>
-            <div>
-              <p className="font-display text-sm font-bold tracking-tight">
-                MEDISHOP
-              </p>
-              <p className="text-xs text-white/70">
-                Thiết bị y tế tại nhà
-              </p>
-            </div>
+            <img
+              src={withBasePath("/assets/images/medicare-logo.jpg")}
+              alt="MediCare - Thiết bị y tế chính hãng"
+              className="h-14 w-auto max-w-[180px] rounded-md object-contain"
+            />
           </div>
           <p className="max-w-sm leading-6 text-white/74">
             Medicare đồng hành cùng gia đình bạn trên hành trình chăm sóc sức

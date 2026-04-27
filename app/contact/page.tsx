@@ -150,7 +150,7 @@ export default function ContactPage() {
                 <strong className="text-[var(--color-ink)]">Hotline:</strong> 1900 24 85
               </p>
               <p>
-                <strong className="text-[var(--color-ink)]">Email:</strong> contact@medishop.vn
+                <strong className="text-[var(--color-ink)]">Email:</strong> 24126067@student.hcmute.edu.vn
               </p>
               <p>
                 <strong className="text-[var(--color-ink)]">Địa chỉ:</strong> 91 Võ Văn Ngân,
