@@ -1,7 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AddToCartButton } from "@/components/add-to-cart-button";
+import { ProductDetailTabs } from "@/components/product-detail-tabs";
+import { ProductGallery } from "@/components/product-gallery";
 import { ProductCard } from "@/components/product-card";
 import { formatCurrency } from "@/lib/currency";
 import {
@@ -10,7 +11,6 @@ import {
   getRelatedProducts,
   products,
 } from "@/lib/products";
-import { withBasePath } from "@/lib/site";
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -31,6 +31,22 @@ export default async function ProductDetailPage({
   const detail = getProductDetailContent(product.id);
   const relatedProducts = getRelatedProducts(product.id);
   const gallery = detail?.gallery.length ? detail.gallery : [product.imagePath];
+  const detailItems = [
+    { title: "Mô tả", body: detail?.description ?? product.description },
+    { title: "Công dụng", body: detail?.uses ?? product.description },
+    {
+      title: "Cách dùng",
+      body: detail?.usage ?? "Đọc kỹ hướng dẫn sử dụng trước khi dùng.",
+    },
+    {
+      title: "Lưu ý",
+      body: detail?.cautions ?? "Kiểm tra tình trạng sản phẩm trước khi dùng.",
+    },
+    {
+      title: "Bảo quản",
+      body: detail?.storage ?? "Bảo quản nơi khô ráo, thoáng mát.",
+    },
+  ];
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
@@ -50,34 +66,7 @@ export default async function ProductDetailPage({
       </div>
 
       <section className="grid gap-6 rounded-[8px] border border-[var(--color-line)] bg-white p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)] lg:grid-cols-[0.9fr_1.1fr] sm:p-8">
-        <div>
-          <div className="relative aspect-square overflow-hidden rounded-[8px] border border-[var(--color-line)] bg-[linear-gradient(180deg,#ffffff,#edf6ff)]">
-            <Image
-              src={withBasePath(gallery[0])}
-              alt={product.imageAlt}
-              fill
-              className="object-contain p-8"
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              priority
-            />
-          </div>
-          <div className="mt-4 grid grid-cols-4 gap-3">
-            {gallery.slice(0, 4).map((image) => (
-              <div
-                key={image}
-                className="relative aspect-square overflow-hidden rounded-[8px] border border-[var(--color-line)] bg-white"
-              >
-                <Image
-                  src={withBasePath(image)}
-                  alt={product.imageAlt}
-                  fill
-                  className="object-contain p-2"
-                  sizes="120px"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        <ProductGallery images={gallery} alt={product.imageAlt} />
 
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]">
@@ -130,40 +119,7 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      <section className="mt-6 grid gap-5 lg:grid-cols-[0.35fr_0.65fr]">
-        <aside className="rounded-[8px] border border-[var(--color-line)] bg-white p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
-            Nội dung chi tiết
-          </p>
-          <div className="mt-4 space-y-2 text-sm font-semibold text-[var(--color-ink)]">
-            {["Mô tả", "Công dụng", "Cách dùng", "Lưu ý", "Bảo quản"].map((item) => (
-              <div
-                key={item}
-                className="rounded-[8px] border border-[var(--color-line)] px-4 py-3"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        </aside>
-
-        <article className="space-y-5 rounded-[8px] border border-[var(--color-line)] bg-white p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
-          <DetailBlock title="Mô tả" body={detail?.description ?? product.description} />
-          <DetailBlock title="Công dụng" body={detail?.uses ?? product.description} />
-          <DetailBlock
-            title="Cách dùng"
-            body={detail?.usage ?? "Đọc kỹ hướng dẫn sử dụng trước khi dùng."}
-          />
-          <DetailBlock
-            title="Lưu ý"
-            body={detail?.cautions ?? "Kiểm tra tình trạng sản phẩm trước khi dùng."}
-          />
-          <DetailBlock
-            title="Bảo quản"
-            body={detail?.storage ?? "Bảo quản nơi khô ráo, thoáng mát."}
-          />
-        </article>
-      </section>
+      <ProductDetailTabs items={detailItems} />
 
       {relatedProducts.length > 0 ? (
         <section className="mt-8">
@@ -183,14 +139,5 @@ export default async function ProductDetailPage({
         </section>
       ) : null}
     </div>
-  );
-}
-
-function DetailBlock({ title, body }: { title: string; body: string }) {
-  return (
-    <section className="border-b border-[var(--color-line)] pb-5 last:border-b-0 last:pb-0">
-      <h2 className="text-lg font-extrabold text-[var(--color-ink)]">{title}</h2>
-      <p className="mt-2 text-base leading-7 text-[var(--color-muted)]">{body}</p>
-    </section>
   );
 }
