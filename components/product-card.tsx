@@ -60,7 +60,7 @@ export function ProductCard({
       <div className="mt-5 flex items-center gap-3">
         <AddToCartButton
           productId={product.id}
-          className="inline-flex items-center justify-center rounded-[6px] bg-[var(--color-brand)] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[var(--color-brand-deep)]"
+          className="inline-flex items-center justify-center rounded-[6px] bg-[var(--color-brand-deep)] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#0b5fa8]"
         />
         <Link
           href={`/products/${product.slug}`}

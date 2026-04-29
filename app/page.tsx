@@ -121,7 +121,7 @@ export default function Home() {
                 <div className="mt-5 flex flex-wrap gap-3 lg:mt-7">
                   <Link
                     href="/products"
-                    className="inline-flex h-11 items-center justify-center rounded-[8px] bg-[var(--color-brand)] px-6 text-[14px] font-bold uppercase tracking-wide text-white transition hover:bg-[var(--color-brand-deep)] sm:h-12 sm:px-8 sm:text-[15px]"
+                    className="inline-flex h-11 items-center justify-center rounded-[8px] bg-[var(--color-brand-deep)] px-6 text-[14px] font-bold uppercase tracking-wide text-white transition hover:bg-[#0b5fa8] sm:h-12 sm:px-8 sm:text-[15px]"
                   >
                     Khám phá ngay
                   </Link>
@@ -158,7 +158,7 @@ export default function Home() {
             <div className="relative z-10 flex h-full flex-col justify-between">
               <div className="space-y-3">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="inline-flex items-center rounded-full bg-brand px-3 py-1 text-[10px] font-black uppercase tracking-widest text-white shadow-lg">
+                  <span className="inline-flex items-center rounded-full bg-[var(--color-brand-deep)] px-3 py-1 text-xs font-black uppercase tracking-widest text-white shadow-lg">
                     Best Seller
                   </span>
                   <div className="flex items-center gap-2 text-xs font-bold text-white/80">
@@ -188,7 +188,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={handleAddCombo}
-                  className="rounded-lg bg-brand px-8 py-3 text-sm font-black uppercase tracking-wider text-white shadow-lg transition-transform hover:bg-brand-deep active:scale-95"
+                  className="rounded-lg bg-[var(--color-brand-deep)] px-8 py-3 text-sm font-black uppercase tracking-wider text-white shadow-lg transition-transform hover:bg-[#0b5fa8] active:scale-95"
                 >
                   Mua combo ngay
                 </button>
@@ -236,13 +236,13 @@ export default function Home() {
                 key={benefit.eyebrow}
                 className={`group relative flex min-h-[170px] flex-col justify-between overflow-hidden rounded-[20px] p-5 shadow-sm transition-all hover:-translate-y-1 ${benefit.className}`}
               >
-                <span className="text-[9px] font-black uppercase tracking-widest opacity-70">
+                <span className="text-[11px] font-black uppercase tracking-widest">
                   {benefit.eyebrow}
                 </span>
                 <h4 className="max-w-[11rem] text-[17px] font-extrabold leading-snug">
                   {benefit.title}
                 </h4>
-                <span className="text-[10px] font-bold opacity-80">{benefit.note}</span>
+                <span className="text-xs font-bold">{benefit.note}</span>
               </div>
             ))}
           </div>
@@ -253,7 +253,7 @@ export default function Home() {
         <div className="mb-8 flex flex-wrap items-center justify-between gap-4 rounded-[20px] border border-transparent bg-card p-6 shadow-sm transition-colors">
           <div className="flex flex-wrap items-center gap-6 text-sm font-bold text-muted">
             <label className="flex items-center gap-2">
-              <span className="text-[11px] uppercase tracking-widest opacity-60">
+              <span className="text-[11px] uppercase tracking-widest text-[var(--color-muted)]">
                 Danh mục:
               </span>
               <select
@@ -273,7 +273,7 @@ export default function Home() {
             </label>
 
             <label className="flex items-center gap-2">
-              <span className="text-[11px] uppercase tracking-widest opacity-60">
+              <span className="text-[11px] uppercase tracking-widest text-[var(--color-muted)]">
                 Mức giá:
               </span>
               <select
@@ -298,7 +298,7 @@ export default function Home() {
             </label>
 
             <label className="flex items-center gap-2">
-              <span className="text-[11px] uppercase tracking-widest opacity-60">
+              <span className="text-[11px] uppercase tracking-widest text-[var(--color-muted)]">
                 Sắp xếp:
               </span>
               <select

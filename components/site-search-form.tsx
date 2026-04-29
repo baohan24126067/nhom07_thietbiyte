@@ -44,7 +44,7 @@ export function SiteSearchForm() {
       </datalist>
       <button
         type="submit"
-        className="text-[12px] text-[var(--color-muted)] transition hover:text-[var(--color-brand)]"
+        className="inline-flex h-11 w-11 shrink-0 items-center justify-center text-[14px] text-[var(--color-muted)] transition hover:text-[var(--color-brand)]"
         aria-label="Mở tìm kiếm"
       >
         ⌕
