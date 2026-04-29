@@ -13,6 +13,19 @@
   --color-footer: #0b3d69;
 }
 
+.dark {
+  --color-surface: #0f172a;
+  --color-surface-strong: #1e293b;
+  --color-card: #1e293b;
+  --color-ink: #f1f5f9;
+  --color-muted: #94a3b8;
+  --color-line: #334155;
+  --color-brand: #38bdf8;
+  --color-brand-deep: #0ea5e9;
+  --color-brand-soft: #1e293b;
+  --color-footer: #020617;
+}
+
 @theme inline {
   --color-background: var(--color-surface);
   --color-foreground: var(--color-ink);

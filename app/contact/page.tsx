@@ -62,9 +62,9 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
+    <div className="mx-auto w-full max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8 transition-colors duration-300">
       <div className="grid gap-6 xl:grid-cols-[1fr_0.95fr]">
-        <section className="rounded-[32px] border border-[var(--color-line)] bg-white p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8">
+        <section className="rounded-[32px] border border-[var(--color-line)] bg-[var(--color-card)] p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]">
             Contact us
           </p>
@@ -115,7 +115,7 @@ export default function ContactPage() {
                 }
                 className={`w-full rounded-[24px] border px-4 py-3 text-sm text-[var(--color-ink)] outline-none transition ${
                   errors.message
-                    ? "border-[#d64545] bg-[#fff6f6]"
+                    ? "border-[#d64545] bg-[#d64545]/10"
                     : "border-[var(--color-line)] bg-[var(--color-brand-soft)] focus:border-[var(--color-brand)]"
                 }`}
               />
@@ -141,7 +141,7 @@ export default function ContactPage() {
         </section>
 
         <section className="space-y-6">
-          <div className="rounded-[32px] border border-[var(--color-line)] bg-[linear-gradient(145deg,#ffffff,#eaf5ff)] p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8">
+          <div className="rounded-[32px] border border-[var(--color-line)] bg-[linear-gradient(145deg,var(--color-card),var(--color-surface))] p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8">
             <h2 className="font-display text-[30px] font-extrabold leading-none text-[var(--color-ink)]">
               Thông tin hỗ trợ
             </h2>
@@ -163,11 +163,11 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-[32px] border border-[var(--color-line)] bg-white shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
+          <div className="overflow-hidden rounded-[32px] border border-[var(--color-line)] bg-[var(--color-card)] shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
             <iframe
               title="Bản đồ MediShop"
               src="https://www.openstreetmap.org/export/embed.html?bbox=106.7612%2C10.8482%2C106.7720%2C10.8588&layer=mapnik&marker=10.8536%2C106.7666"
-              className="h-[380px] w-full border-0"
+              className="h-[380px] w-full border-0 dark:invert-[0.9] dark:hue-rotate-180"
               loading="lazy"
             />
           </div>
@@ -198,7 +198,7 @@ function Field({
         onChange={(event) => onChange(event.target.value)}
         className={`w-full rounded-full border px-4 py-3 text-sm text-[var(--color-ink)] outline-none transition ${
           error
-            ? "border-[#d64545] bg-[#fff6f6]"
+            ? "border-[#d64545] bg-[#d64545]/10"
             : "border-[var(--color-line)] bg-[var(--color-brand-soft)] focus:border-[var(--color-brand)]"
         }`}
       />

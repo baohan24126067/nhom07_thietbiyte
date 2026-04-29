@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ProductCard } from "@/components/product-card";
+import { ProductCardSkeleton } from "@/components/skeleton";
 import catalogProducts from "@/lib/catalog-products.json";
 import { products } from "@/lib/products";
 
@@ -23,6 +24,12 @@ export default function ProductsPage() {
   const [priceFilter, setPriceFilter] = useState<PriceRangeValue>("all");
   const [priceSort, setPriceSort] = useState<SortValue>("default");
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
 
   const categories = useMemo(
     () => Array.from(new Set(catalogProducts.map((product) => product.category))),
@@ -65,30 +72,38 @@ export default function ProductsPage() {
   );
 
   const resetFilters = () => {
+    setIsLoading(true);
     setCategoryFilter("all");
     setPriceFilter("all");
     setPriceSort("default");
     setCurrentPage(1);
+    setTimeout(() => setIsLoading(false), 500);
   };
 
   const handleCategoryChange = (value: string) => {
+    setIsLoading(true);
     setCategoryFilter(value);
     setCurrentPage(1);
+    setTimeout(() => setIsLoading(false), 400);
   };
 
   const handlePriceChange = (value: PriceRangeValue) => {
+    setIsLoading(true);
     setPriceFilter(value);
     setCurrentPage(1);
+    setTimeout(() => setIsLoading(false), 400);
   };
 
   const handleSortChange = (value: SortValue) => {
+    setIsLoading(true);
     setPriceSort(value);
     setCurrentPage(1);
+    setTimeout(() => setIsLoading(false), 400);
   };
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-      <section className="rounded-[8px] border border-[var(--color-line)] bg-[linear-gradient(145deg,#ffffff,#eaf5ff)] p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8 motion-safe motion-rise">
+      <section className="rounded-[8px] border border-[var(--color-line)] bg-[linear-gradient(145deg,var(--color-card),var(--color-surface))] p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8 motion-safe motion-rise">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]">
           Product catalog
         </p>
@@ -102,14 +117,14 @@ export default function ProductsPage() {
               phân trang để người dùng so sánh thiết bị nhanh hơn.
             </p>
           </div>
-          <div className="rounded-[8px] bg-white px-5 py-4 text-sm text-[var(--color-muted)] shadow-[0_12px_30px_rgba(17,57,95,0.06)]">
+          <div className="rounded-[8px] bg-[var(--color-card)] px-5 py-4 text-sm text-[var(--color-muted)] shadow-[0_12px_30px_rgba(17,57,95,0.06)]">
             <strong className="text-[var(--color-ink)]">{processedProducts.length}</strong>{" "}
             sản phẩm phù hợp
           </div>
         </div>
       </section>
 
-      <section className="mt-6 rounded-[8px] border border-[var(--color-line)] bg-white p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
+      <section className="mt-6 rounded-[8px] border border-[var(--color-line)] bg-[var(--color-card)] p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
         <div className="grid gap-4 lg:grid-cols-[1fr_1fr_1fr_auto]">
           <label className="block">
             <span className="mb-2 block text-sm font-bold text-[var(--color-ink)]">
@@ -164,14 +179,20 @@ export default function ProductsPage() {
           <button
             type="button"
             onClick={resetFilters}
-            className="self-end rounded-[8px] border border-[var(--color-line)] bg-white px-5 py-3 text-sm font-bold text-[var(--color-ink)] transition hover:border-[var(--color-brand)]"
+            className="self-end rounded-[8px] border border-[var(--color-line)] bg-[var(--color-card)] px-5 py-3 text-sm font-bold text-[var(--color-ink)] transition hover:border-[var(--color-brand)]"
           >
             Đặt lại
           </button>
         </div>
       </section>
 
-      {paginatedProducts.length > 0 ? (
+      {isLoading ? (
+        <section className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
+            <ProductCardSkeleton key={i} />
+          ))}
+        </section>
+      ) : paginatedProducts.length > 0 ? (
         <section className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {paginatedProducts.map((product, index) => (
             <div
@@ -179,12 +200,12 @@ export default function ProductsPage() {
               className="motion-safe motion-rise"
               style={{ animationDelay: `${index * 70}ms` }}
             >
-              <ProductCard product={product} />
+              <ProductCard product={product} index={index} />
             </div>
           ))}
         </section>
       ) : (
-        <section className="mt-6 rounded-[8px] border border-[var(--color-line)] bg-white p-10 text-center shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
+        <section className="mt-6 rounded-[8px] border border-[var(--color-line)] bg-[var(--color-card)] p-10 text-center shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
           <h2 className="font-display text-[30px] font-extrabold leading-none text-[var(--color-ink)]">
             Không tìm thấy sản phẩm phù hợp
           </h2>
@@ -199,7 +220,7 @@ export default function ProductsPage() {
           type="button"
           onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
           disabled={safeCurrentPage === 1}
-          className="rounded-[8px] border border-[var(--color-line)] bg-white px-4 py-2 text-sm font-bold text-[var(--color-ink)] transition hover:border-[var(--color-brand)] disabled:cursor-not-allowed disabled:opacity-50"
+          className="rounded-[8px] border border-[var(--color-line)] bg-[var(--color-card)] px-4 py-2 text-sm font-bold text-[var(--color-ink)] transition hover:border-[var(--color-brand)] disabled:cursor-not-allowed disabled:opacity-50"
         >
           Trước
         </button>
@@ -211,7 +232,7 @@ export default function ProductsPage() {
             className={`h-10 w-10 rounded-[8px] text-sm font-bold transition ${
               safeCurrentPage === page
                 ? "bg-[var(--color-brand)] text-white"
-                : "border border-[var(--color-line)] bg-white text-[var(--color-ink)] hover:border-[var(--color-brand)]"
+                : "border border-[var(--color-line)] bg-[var(--color-card)] text-[var(--color-ink)] hover:border-[var(--color-brand)]"
             }`}
           >
             {page}
@@ -221,7 +242,7 @@ export default function ProductsPage() {
           type="button"
           onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))}
           disabled={safeCurrentPage === totalPages}
-          className="rounded-[8px] border border-[var(--color-line)] bg-white px-4 py-2 text-sm font-bold text-[var(--color-ink)] transition hover:border-[var(--color-brand)] disabled:cursor-not-allowed disabled:opacity-50"
+          className="rounded-[8px] border border-[var(--color-line)] bg-[var(--color-card)] px-4 py-2 text-sm font-bold text-[var(--color-ink)] transition hover:border-[var(--color-brand)] disabled:cursor-not-allowed disabled:opacity-50"
         >
           Sau
         </button>

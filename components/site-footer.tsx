@@ -14,6 +14,8 @@ const footerColumns: Array<{ title: string; items: FooterItem[] }> = [
       { label: "Giỏ hàng", href: "/cart" },
       { label: "Thanh toán", href: "/checkout" },
       { label: "Đăng nhập", href: "/login" },
+      { label: "Đăng ký", href: "/register" },
+      { label: "Tư vấn sức khỏe", href: "/symptom-checker" },
       { label: "Tìm kiếm", href: "/search" },
       { label: "About", href: "/about" },
       { label: "Liên hệ", href: "/contact" },

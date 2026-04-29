@@ -91,38 +91,48 @@ export default function Home() {
   return (
     <div className="bg-background pb-20 transition-colors duration-300">
       <section className="w-full">
-        <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden bg-[var(--color-surface)] lg:aspect-[3.2/1]">
-          <div className="relative min-h-[400px] w-full overflow-hidden lg:h-full lg:min-h-0">
-            <div className="absolute left-[23.44%] top-[3.75%] hidden h-[90.25%] w-[75.63%] overflow-hidden lg:block">
-              <img
-                src={withBasePath("/assets/images/hero.jpg")}
-                alt="Gia đình chăm sóc sức khỏe cùng MediCare"
-                className="absolute inset-0 h-full w-full object-cover object-center"
-              />
-            </div>
-            <div className="relative h-[230px] overflow-hidden lg:hidden">
-              <img
-                src={withBasePath("/assets/images/hero.jpg")}
-                alt="Gia đình chăm sóc sức khỏe cùng MediCare"
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
+        <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden">
+          <div className="relative h-[260px] sm:h-[340px] lg:h-[460px]">
+            {/* Full-width background image */}
+            <img
+              src={withBasePath("/assets/images/hero.jpg")}
+              alt="Gia đình chăm sóc sức khỏe cùng MediCare"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
+            {/* Gradient overlay: dark on left → transparent on right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#061525] via-[#061525]/80 to-[#061525]/10" />
 
-            <div className="relative z-10 px-5 py-8 lg:absolute lg:left-[2.11%] lg:top-[11.25%] lg:w-[41.02%] lg:p-0">
-              <h1 className="max-w-[486px] font-display text-[34px] font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-[42px] lg:text-[clamp(32px,3.75vw,48px)]">
-                Mua sắm <span className="text-brand">AN TÂM</span> —{" "}
-                <span className="text-brand">SỐNG KHỎE</span> Mỗi ngày
-              </h1>
-              <p className="mt-4 max-w-[515px] text-[18px] font-medium leading-[1.55] text-muted lg:mt-[10px] lg:text-[clamp(16px,1.72vw,22px)]">
-                MediShop đồng hành cùng gia đình bạn trên hành trình chăm sóc
-                sức khỏe mỗi ngày.
-              </p>
-              <Link
-                href="/products"
-                className="mt-5 inline-flex h-[59px] w-[238px] items-center justify-center rounded-[8px] bg-brand text-[18px] font-bold uppercase tracking-wide text-white transition hover:bg-brand-deep lg:ml-[22.1%] lg:mt-[10px]"
-              >
-                Khám phá ngay
-              </Link>
+            {/* Text content */}
+            <div className="absolute inset-0 z-10 flex items-center px-6 sm:px-12 lg:px-20">
+              <div className="max-w-[540px]">
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[var(--color-brand)]">
+                  Thiết bị y tế chính hãng
+                </p>
+                <h1 className="font-display text-[28px] font-extrabold leading-[1.1] tracking-tight text-white sm:text-[38px] lg:text-[52px]">
+                  Mua sắm{" "}
+                  <span className="text-[var(--color-brand)]">AN TÂM</span>
+                  <br />
+                  <span className="text-[var(--color-brand)]">SỐNG KHỎE</span>{" "}
+                  Mỗi ngày
+                </h1>
+                <p className="mt-3 text-[14px] font-medium leading-relaxed text-white/70 sm:text-[16px] lg:mt-4 lg:text-[18px]">
+                  MediShop đồng hành cùng gia đình bạn trên hành trình chăm sóc sức khỏe mỗi ngày.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-3 lg:mt-7">
+                  <Link
+                    href="/products"
+                    className="inline-flex h-11 items-center justify-center rounded-[8px] bg-[var(--color-brand)] px-6 text-[14px] font-bold uppercase tracking-wide text-white transition hover:bg-[var(--color-brand-deep)] sm:h-12 sm:px-8 sm:text-[15px]"
+                  >
+                    Khám phá ngay
+                  </Link>
+                  <Link
+                    href="/symptom-checker"
+                    className="inline-flex h-11 items-center justify-center rounded-[8px] border-2 border-[var(--color-brand)] px-6 text-[14px] font-bold uppercase tracking-wide text-[var(--color-brand)] transition hover:bg-[var(--color-brand)] hover:text-white sm:h-12 sm:px-8 sm:text-[15px]"
+                  >
+                    Trợ lý tư vấn
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -318,8 +328,8 @@ export default function Home() {
 
         {visibleProducts.length > 0 ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {visibleProducts.map((item) => (
-              <ProductCard key={item.id} product={item} />
+            {visibleProducts.map((item, index) => (
+              <ProductCard key={item.id} product={item} index={index} />
             ))}
           </div>
         ) : (

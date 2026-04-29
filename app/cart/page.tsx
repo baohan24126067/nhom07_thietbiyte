@@ -50,7 +50,7 @@ export default function CartPage() {
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
-        <section className="rounded-[28px] border border-[var(--color-line)] bg-white p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-6">
+        <section className="rounded-[28px] border border-[var(--color-line)] bg-[var(--color-card)] p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-6">
           <div className="flex items-end justify-between gap-4 border-b border-[var(--color-line)] pb-4">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]">
@@ -72,7 +72,7 @@ export default function CartPage() {
                   key={item}
                   className="rounded-[24px] border border-[var(--color-line)] bg-[var(--color-brand-soft)] p-4"
                 >
-                  <div className="h-28 animate-pulse rounded-[20px] bg-white/80" />
+                  <div className="h-28 animate-pulse rounded-[20px] bg-[var(--color-card)]/80" />
                 </div>
               ))}
             </div>
@@ -100,7 +100,7 @@ export default function CartPage() {
               {lineItems.map((item) => (
                 <article
                   key={item.product.id}
-                  className="grid gap-4 rounded-[24px] border border-[var(--color-line)] bg-[linear-gradient(180deg,#ffffff,#f6fbff)] p-4 sm:grid-cols-[8rem_1fr]"
+                  className="grid gap-4 rounded-[24px] border border-[var(--color-line)] bg-[var(--color-card)] p-4 sm:grid-cols-[8rem_1fr]"
                 >
                   <div className="flex aspect-square items-center justify-center rounded-[18px] bg-[var(--color-brand-soft)] p-4">
                     <ProductIllustration product={item.product} />
@@ -151,7 +151,7 @@ export default function CartPage() {
         </section>
 
         <aside className="space-y-5">
-          <section className="rounded-[28px] border border-[var(--color-line)] bg-white p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
+          <section className="rounded-[28px] border border-[var(--color-line)] bg-[var(--color-card)] p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
             <h2 className="font-display text-2xl font-bold text-[var(--color-ink)]">
               Mã ưu đãi
             </h2>
@@ -196,7 +196,7 @@ export default function CartPage() {
             ) : null}
           </section>
 
-          <section className="rounded-[28px] border border-[var(--color-line)] bg-[linear-gradient(180deg,#ffffff,#eef7ff)] p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
+          <section className="rounded-[28px] border border-[var(--color-line)] bg-[var(--color-card)] p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
             <h2 className="font-display text-2xl font-bold text-[var(--color-ink)]">
               Tóm tắt đơn hàng
             </h2>
@@ -239,7 +239,7 @@ export default function CartPage() {
           </section>
 
           {suggestions.length > 0 ? (
-            <section className="rounded-[28px] border border-[var(--color-line)] bg-white p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
+            <section className="rounded-[28px] border border-[var(--color-line)] bg-[var(--color-card)] p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
               <h2 className="font-display text-xl font-bold text-[var(--color-ink)]">
                 Gợi ý mua thêm
               </h2>
@@ -249,7 +249,7 @@ export default function CartPage() {
                     key={product.id}
                     className="flex items-center gap-3 rounded-[22px] bg-[var(--color-brand-soft)] p-3"
                   >
-                    <div className="flex h-16 w-16 items-center justify-center rounded-[18px] bg-white">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-[18px] bg-[var(--color-card)]">
                       <ProductIllustration product={product} className="h-10 w-10" />
                     </div>
                     <div className="min-w-0 flex-1">

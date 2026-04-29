@@ -30,7 +30,7 @@ export function ProductGallery({
 
   return (
     <div>
-      <div className="relative aspect-square overflow-hidden rounded-[8px] border border-[var(--color-line)] bg-[linear-gradient(180deg,#ffffff,#edf6ff)]">
+      <div className="relative aspect-square overflow-hidden rounded-[8px] border border-[var(--color-line)] bg-[var(--color-card)]">
         <Image
           src={withBasePath(activeImage)}
           alt={alt}
@@ -51,7 +51,7 @@ export function ProductGallery({
               onClick={() => setActiveIndex(index)}
               aria-label={`Xem ảnh sản phẩm ${index + 1}`}
               aria-pressed={isActive}
-              className={`relative aspect-square overflow-hidden rounded-[8px] border bg-white transition ${
+              className={`relative aspect-square overflow-hidden rounded-[8px] border bg-[var(--color-card)] transition ${
                 isActive
                   ? "border-[var(--color-brand)] shadow-[0_10px_30px_rgba(33,150,243,0.18)]"
                   : "border-[var(--color-line)] hover:border-[var(--color-brand)]"

@@ -13,7 +13,7 @@ export default function FaqPage() {
     <div className="pb-20">
       <section className="mx-auto w-full max-w-7xl px-4 pt-5 sm:px-6 lg:px-8">
         <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="rounded-[6px] bg-white p-6 shadow-[0_1px_0_rgba(255,255,255,0.65)]">
+          <div className="rounded-[6px] bg-[var(--color-card)] p-6 shadow-[0_1px_0_rgba(255,255,255,0.65)]">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-[var(--color-brand)]">
               Trang đặc trưng theo chủ đề
             </p>
@@ -47,15 +47,15 @@ export default function FaqPage() {
               >
                 Về trang chủ
               </Link>
-              <span className="inline-flex items-center justify-center rounded-[6px] border border-[var(--color-line)] bg-white px-5 py-3 text-sm font-semibold text-[var(--color-ink)]">
+              <span className="inline-flex items-center justify-center rounded-[6px] border border-[var(--color-line)] bg-[var(--color-card)] px-5 py-3 text-sm font-semibold text-[var(--color-ink)]">
                 Foundation của Bảo Hân
               </span>
             </div>
           </div>
 
-          <div className="rounded-[6px] border border-[var(--color-line)] bg-[linear-gradient(160deg,#d7ebff,#eef6ff)] p-5">
+          <div className="rounded-[6px] border border-[var(--color-line)] bg-[var(--color-surface-strong)] p-5">
             <div className="grid gap-4 sm:grid-cols-[0.95fr_1.05fr]">
-              <div className="rounded-[6px] bg-white p-5 shadow-[0_1px_0_rgba(255,255,255,0.65)]">
+              <div className="rounded-[6px] bg-[var(--color-card)] p-5 shadow-[0_1px_0_rgba(255,255,255,0.65)]">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-brand)]">
                   Hỗ trợ nhanh
                 </p>
@@ -81,7 +81,7 @@ export default function FaqPage() {
                 </dl>
               </div>
 
-              <div className="rounded-[6px] bg-white p-5 shadow-[0_1px_0_rgba(255,255,255,0.65)]">
+              <div className="rounded-[6px] bg-[var(--color-card)] p-5 shadow-[0_1px_0_rgba(255,255,255,0.65)]">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-brand)]">
                   Kiểm tra trước khi dùng
                 </p>
@@ -114,7 +114,7 @@ export default function FaqPage() {
           {faqGroups.map((group) => (
             <article
               key={group.title}
-              className="rounded-[6px] border border-[var(--color-line)] bg-white p-5 shadow-[0_1px_0_rgba(255,255,255,0.65)]"
+              className="rounded-[6px] border border-[var(--color-line)] bg-[var(--color-card)] p-5 shadow-[0_1px_0_rgba(255,255,255,0.65)]"
             >
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-[var(--color-brand)]">
                 FAQ Group

@@ -25,7 +25,7 @@ export function SiteSearchForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-center rounded-full border border-[var(--color-line)] bg-white px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]"
+      className="flex items-center rounded-full border border-[var(--color-line)] bg-[var(--color-card)] px-4 py-2"
     >
       <input
         aria-label="Tìm kiếm sản phẩm"

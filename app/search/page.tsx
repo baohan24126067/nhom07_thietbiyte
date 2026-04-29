@@ -13,7 +13,7 @@ export default function SearchPage() {
 
 function SearchFallback() {
   return (
-    <section className="rounded-[32px] border border-[var(--color-line)] bg-white p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8">
+    <section className="rounded-[32px] border border-[var(--color-line)] bg-[var(--color-card)] p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8">
       <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]">
         Product search
       </p>

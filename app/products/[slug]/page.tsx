@@ -65,7 +65,7 @@ export default async function ProductDetailPage({
         <span className="font-semibold text-[var(--color-ink)]">{product.name}</span>
       </div>
 
-      <section className="grid gap-6 rounded-[8px] border border-[var(--color-line)] bg-white p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)] lg:grid-cols-[0.9fr_1.1fr] sm:p-8">
+      <section className="grid gap-6 rounded-[8px] border border-[var(--color-line)] bg-[var(--color-card)] p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)] lg:grid-cols-[0.9fr_1.1fr] sm:p-8">
         <ProductGallery images={gallery} alt={product.imageAlt} />
 
         <div>
@@ -99,7 +99,7 @@ export default async function ProductDetailPage({
               />
               <Link
                 href="/checkout"
-                className="inline-flex items-center justify-center rounded-[8px] border border-[var(--color-line)] bg-white px-5 py-3 text-sm font-bold text-[var(--color-ink)] transition hover:border-[var(--color-brand)]"
+                className="inline-flex items-center justify-center rounded-[8px] border border-[var(--color-line)] bg-[var(--color-card)] px-5 py-3 text-sm font-bold text-[var(--color-ink)] transition hover:border-[var(--color-brand)]"
               >
                 Thanh toán ngay
               </Link>
@@ -110,7 +110,7 @@ export default async function ProductDetailPage({
             {(detail?.summary ?? product.specs.map((spec) => spec.value)).map((item) => (
               <li
                 key={item}
-                className="rounded-[8px] border border-[var(--color-line)] bg-white px-4 py-3 text-sm font-semibold text-[var(--color-ink)]"
+                className="rounded-[8px] border border-[var(--color-line)] bg-[var(--color-card)] px-4 py-3 text-sm font-semibold text-[var(--color-ink)]"
               >
                 {item}
               </li>

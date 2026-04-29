@@ -6,10 +6,12 @@ import { usePathname } from "next/navigation";
 import { useCart } from "@/components/cart-provider";
 import { SiteSearchForm } from "@/components/site-search-form";
 import { withBasePath } from "@/lib/site";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
   { href: "/", label: "Home", glyph: "⌂", available: true },
   { href: "/products", label: "Products", glyph: "◫", available: true },
+  { href: "/symptom-checker", label: "Tư vấn", glyph: "♡", available: true },
   { href: "/about", label: "About", glyph: "ⓘ", available: true },
   { href: "/contact", label: "Contact", glyph: "✉", available: true },
   { href: "/cart", label: "Cart", glyph: "🛒", available: true },
@@ -27,42 +29,45 @@ export function SiteHeader() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-20 border-b border-[var(--color-line)] bg-white/95 backdrop-blur-md">
+    <header className="sticky top-0 z-20 border-b border-[var(--color-line)] bg-[var(--color-card)]/95 backdrop-blur-md transition-colors duration-300">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-5 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center">
           <img
             src={withBasePath("/assets/images/medicare-logo.jpg")}
             alt="MediCare - Thiết bị y tế chính hãng"
-            className="h-12 w-auto max-w-[190px] rounded-md object-contain sm:h-14 sm:max-w-[230px]"
+            className="h-12 w-auto max-w-[190px] rounded-md object-contain sm:h-14 sm:max-w-[230px] dark:brightness-90"
           />
         </Link>
 
-        <button
-          type="button"
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-site-menu"
-          aria-label={isMenuOpen ? "Đóng menu điều hướng" : "Mở menu điều hướng"}
-          onClick={() => setIsMenuOpen((current) => !current)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line)] bg-white text-[var(--color-ink)] transition hover:border-[var(--color-brand)] md:hidden"
-        >
-          <span className="flex flex-col items-center justify-center gap-1.5">
-            <span
-              className={`block h-0.5 w-5 rounded-full bg-current transition ${
-                isMenuOpen ? "translate-y-2 rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-5 rounded-full bg-current transition ${
-                isMenuOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-5 rounded-full bg-current transition ${
-                isMenuOpen ? "-translate-y-2 -rotate-45" : ""
-              }`}
-            />
-          </span>
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-site-menu"
+            aria-label={isMenuOpen ? "Đóng menu điều hướng" : "Mở menu điều hướng"}
+            onClick={() => setIsMenuOpen((current) => !current)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line)] bg-[var(--color-card)] text-[var(--color-ink)] transition hover:border-[var(--color-brand)]"
+          >
+            <span className="flex flex-col items-center justify-center gap-1.5">
+              <span
+                className={`block h-0.5 w-5 rounded-full bg-current transition ${
+                  isMenuOpen ? "translate-y-2 rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-5 rounded-full bg-current transition ${
+                  isMenuOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-5 rounded-full bg-current transition ${
+                  isMenuOpen ? "-translate-y-2 -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
+        </div>
 
         <nav className="hidden items-end gap-6 md:flex">
           {navItems.map((item) =>
@@ -102,6 +107,9 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <div className="hidden items-center md:flex">
+            <ThemeToggle />
+          </div>
           <Link
             href="/cart"
             className="hidden items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-brand-soft)] px-3 py-1.5 transition hover:border-[var(--color-brand)] lg:flex"
@@ -110,6 +118,12 @@ export function SiteHeader() {
             <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#e53935] px-1 text-[10px] font-bold text-white">
               {isHydrated ? itemCount : 0}
             </span>
+          </Link>
+          <Link
+            href="/register"
+            className="hidden items-center gap-1.5 rounded-full border border-[var(--color-brand)] px-3 py-1.5 text-xs font-bold text-[var(--color-brand)] transition hover:bg-[var(--color-brand)] hover:text-white lg:flex"
+          >
+            Đăng ký
           </Link>
           <Link
             href="/login"
@@ -126,7 +140,7 @@ export function SiteHeader() {
       {isMenuOpen ? (
         <div
           id="mobile-site-menu"
-          className="border-t border-[var(--color-line)] bg-white md:hidden"
+          className="border-t border-[var(--color-line)] bg-[var(--color-card)] md:hidden"
         >
           <nav className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-4 sm:px-6">
             {navItems.map((item) => (
@@ -166,9 +180,6 @@ export function SiteHeader() {
 
       <div className="border-t border-[var(--color-line)] bg-[var(--color-surface)]">
         <div className="mx-auto flex w-full items-center gap-4 px-5 py-2.5 sm:px-8 lg:px-[2.1vw]">
-          <p className="hidden min-w-0 flex-1 truncate text-[11px] text-[var(--color-muted)] md:block">
-            {breadcrumbLabel}
-          </p>
           <div className="w-full md:ml-auto md:w-[23vw] md:min-w-[18rem] md:max-w-[30rem]">
             <Suspense fallback={<SearchFallback />}>
               <SiteSearchForm />
@@ -221,12 +232,16 @@ function getBreadcrumbLabel(pathname: string) {
     return "Trang chủ > Hỗ trợ khách hàng > Liên hệ";
   }
 
+  if (pathname === "/symptom-checker") {
+    return "Trang chủ > Tư vấn sức khỏe > Trợ lý gợi ý thiết bị";
+  }
+
   return "Trang chủ > Thiết bị y tế > Máy đo huyết áp";
 }
 
 function SearchFallback() {
   return (
-    <div className="flex items-center rounded-full border border-[var(--color-line)] bg-white px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
+    <div className="flex items-center rounded-full border border-[var(--color-line)] bg-[var(--color-card)] px-4 py-2">
       <div className="w-full text-xs text-[var(--color-muted)]">Tìm kiếm sản phẩm</div>
       <span className="text-[12px] text-[var(--color-muted)]">⌕</span>
     </div>

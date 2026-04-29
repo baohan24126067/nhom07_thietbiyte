@@ -4,7 +4,7 @@ import { teamMembers } from "@/lib/team";
 export default function AboutPage() {
   return (
     <div className="mx-auto w-full max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-      <section className="rounded-[32px] border border-[var(--color-line)] bg-[linear-gradient(140deg,#ffffff,#eaf5ff)] p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8">
+      <section className="rounded-[32px] border border-[var(--color-line)] bg-[linear-gradient(140deg,var(--color-card),var(--color-surface))] p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8 transition-colors duration-300">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]">
           About the team
         </p>
@@ -36,7 +36,7 @@ export default function AboutPage() {
         {teamMembers.map((member) => (
           <article
             key={`${member.name}-${member.studentId ?? "pending"}`}
-            className="rounded-[28px] border border-[var(--color-line)] bg-white p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)]"
+            className="rounded-[28px] border border-[var(--color-line)] bg-[var(--color-card)] p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] transition-colors duration-300"
           >
             <div className="flex items-start justify-between gap-4">
               <div>

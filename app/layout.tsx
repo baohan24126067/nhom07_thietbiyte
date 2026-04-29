@@ -3,6 +3,9 @@ import { Manrope, Source_Sans_3 } from "next/font/google";
 import { CartProvider } from "@/components/cart-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { ThemeProvider } from "@/components/theme-provider";
+import { PageTransition } from "@/components/page-transition";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -37,17 +40,28 @@ export default function RootLayout({
   return (
     <html
       lang="vi"
+      suppressHydrationWarning
       className={`${manrope.variable} ${sourceSans.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full bg-[var(--color-surface)] text-[var(--color-ink)]">
-        <CartProvider>
-          <div className="relative flex min-h-full flex-col overflow-x-hidden">
-            <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(30,136,229,0.22),_transparent_58%)]" />
-            <SiteHeader />
-            <main className="flex-1">{children}</main>
-            <SiteFooter />
-          </div>
-        </CartProvider>
+      <body className="min-h-full bg-[var(--color-surface)] text-[var(--color-ink)] transition-colors duration-300">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <CartProvider>
+            <div className="relative flex min-h-full flex-col overflow-x-hidden">
+              <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(30,136,229,0.22),_transparent_58%)] dark:bg-[radial-gradient(circle_at_top,_rgba(30,136,229,0.1),_transparent_58%)]" />
+              <SiteHeader />
+              <main className="flex-1">
+                <PageTransition>{children}</PageTransition>
+              </main>
+              <SiteFooter />
+            </div>
+            <Toaster position="top-right" richColors closeButton />
+          </CartProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -85,7 +85,7 @@ export default function CheckoutPage() {
   if (status === "success") {
     return (
       <div className="mx-auto flex min-h-[70vh] w-full max-w-3xl items-center px-4 py-12 sm:px-6 lg:px-8">
-        <div className="w-full rounded-[32px] border border-[var(--color-line)] bg-white p-8 text-center shadow-[0_24px_80px_rgba(17,57,95,0.10)]">
+        <div className="w-full rounded-[32px] border border-[var(--color-line)] bg-[var(--color-card)] p-8 text-center shadow-[0_24px_80px_rgba(17,57,95,0.10)]">
           <div className="mx-auto flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-[var(--color-brand-soft)] text-3xl text-[var(--color-brand)]">
             ✓
           </div>
@@ -138,12 +138,12 @@ export default function CheckoutPage() {
           {[1, 2].map((item) => (
             <div
               key={item}
-              className="h-80 animate-pulse rounded-[28px] border border-[var(--color-line)] bg-white"
+              className="h-80 animate-pulse rounded-[28px] border border-[var(--color-line)] bg-[var(--color-card)]"
             />
           ))}
         </div>
       ) : !canCheckout ? (
-        <div className="rounded-[32px] border border-[var(--color-line)] bg-white p-8 text-center shadow-[0_24px_80px_rgba(17,57,95,0.10)]">
+        <div className="rounded-[32px] border border-[var(--color-line)] bg-[var(--color-card)] p-8 text-center shadow-[0_24px_80px_rgba(17,57,95,0.10)]">
           <h1 className="font-display text-[36px] font-extrabold leading-none text-[var(--color-ink)]">
             Chưa có sản phẩm để thanh toán
           </h1>
@@ -162,7 +162,7 @@ export default function CheckoutPage() {
         <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
           <form
             onSubmit={handleSubmit}
-            className="rounded-[28px] border border-[var(--color-line)] bg-white p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-6"
+            className="rounded-[28px] border border-[var(--color-line)] bg-[var(--color-card)] p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-6"
           >
             <div className="border-b border-[var(--color-line)] pb-5">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]">
@@ -244,7 +244,7 @@ export default function CheckoutPage() {
                     className={`rounded-[24px] border p-4 transition ${
                       form.paymentMethod === option.id
                         ? "border-[var(--color-brand)] bg-[var(--color-brand-soft)]"
-                        : "border-[var(--color-line)] bg-white"
+                        : "border-[var(--color-line)] bg-[var(--color-card)]"
                     }`}
                   >
                     <div className="flex items-start gap-3">
@@ -283,7 +283,7 @@ export default function CheckoutPage() {
             </button>
           </form>
 
-          <aside className="rounded-[28px] border border-[var(--color-line)] bg-white p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-6">
+          <aside className="rounded-[28px] border border-[var(--color-line)] bg-[var(--color-card)] p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-6">
             <h2 className="font-display text-[30px] font-extrabold leading-none text-[var(--color-ink)]">
               Tóm tắt thanh toán
             </h2>
@@ -293,7 +293,7 @@ export default function CheckoutPage() {
                   key={item.product.id}
                   className="flex items-center gap-3 rounded-[24px] bg-[var(--color-brand-soft)] p-3"
                 >
-                  <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-[20px] bg-white">
+                  <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-[20px] bg-[var(--color-card)]">
                     <ProductIllustration product={item.product} className="h-12 w-12" />
                   </div>
                   <div className="min-w-0 flex-1">
@@ -311,7 +311,7 @@ export default function CheckoutPage() {
               ))}
             </div>
 
-            <div className="mt-6 space-y-3 rounded-[24px] border border-[var(--color-line)] bg-[linear-gradient(180deg,#ffffff,#eef7ff)] p-4 text-sm">
+            <div className="mt-6 space-y-3 rounded-[24px] border border-[var(--color-line)] bg-[var(--color-card)] p-4 text-sm">
               <div className="flex items-center justify-between">
                 <span className="text-[var(--color-muted)]">Tạm tính</span>
                 <strong className="text-[var(--color-ink)]">

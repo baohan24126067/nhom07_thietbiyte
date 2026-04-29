@@ -74,7 +74,7 @@ export default function RegisterPage() {
   return (
     <div className="mx-auto w-full max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
       <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
-        <section className="overflow-hidden rounded-[32px] border border-[var(--color-line)] bg-[linear-gradient(140deg,#f6fbff,#d9edff)] p-8 shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
+        <section className="overflow-hidden rounded-[32px] border border-[var(--color-line)] bg-[var(--color-surface-strong)] p-8 shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]">
             Create account
           </p>
@@ -96,7 +96,7 @@ export default function RegisterPage() {
             ].map((item) => (
               <div
                 key={item}
-                className="rounded-[24px] bg-white/80 px-4 py-4 text-sm font-semibold text-[var(--color-ink)]"
+                className="rounded-[24px] bg-[var(--color-card)]/80 px-4 py-4 text-sm font-semibold text-[var(--color-ink)]"
               >
                 {item}
               </div>
@@ -104,7 +104,7 @@ export default function RegisterPage() {
           </div>
         </section>
 
-        <section className="rounded-[32px] border border-[var(--color-line)] bg-white p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8">
+        <section className="rounded-[32px] border border-[var(--color-line)] bg-[var(--color-card)] p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8">
           <div className="border-b border-[var(--color-line)] pb-5">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]">
               Register

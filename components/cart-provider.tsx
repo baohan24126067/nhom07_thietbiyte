@@ -9,6 +9,7 @@ import {
   useReducer,
   useState,
 } from "react";
+import { toast } from "sonner";
 import { getProductById } from "@/lib/products";
 
 const STORAGE_KEY = "medishop-cart";
@@ -16,12 +17,6 @@ const STORAGE_KEY = "medishop-cart";
 export type CartItem = {
   productId: string;
   quantity: number;
-};
-
-type CartToast = {
-  id: number;
-  title: string;
-  detail: string;
 };
 
 type CartState = {
@@ -48,14 +43,12 @@ type CartContextValue = {
   discountAmount: number;
   shippingFee: number;
   total: number;
-  toasts: CartToast[];
   isHydrated: boolean;
   addItem: (productId: string, quantity?: number) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   removeItem: (productId: string) => void;
   applyCoupon: (code: string) => { ok: boolean; message: string };
   clearCoupon: () => void;
-  dismissToast: (id: number) => void;
   resetCart: () => void;
 };
 
@@ -146,7 +139,6 @@ function getDiscountRate(code: string) {
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
-  const [toasts, setToasts] = useState<CartToast[]>([]);
   const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
@@ -172,24 +164,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }, [isHydrated, state]);
 
-  const pushToast = useCallback((title: string, detail: string) => {
-    const id = Date.now() + Math.floor(Math.random() * 1000);
-    setToasts((current) => [...current, { id, title, detail }]);
-
-    window.setTimeout(() => {
-      setToasts((current) => current.filter((toast) => toast.id !== id));
-    }, 2800);
-  }, []);
-
   const addItem = useCallback(
     (productId: string, quantity = 1) => {
       const product = getProductById(productId);
       dispatch({ type: "add", productId, quantity });
       if (product) {
-        pushToast("Đã thêm vào giỏ", product.name);
+        toast.success("Đã thêm vào giỏ", { description: product.name });
       }
     },
-    [pushToast],
+    [],
   );
 
   const updateQuantity = useCallback((productId: string, quantity: number) => {
@@ -205,10 +188,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       const product = getProductById(productId);
       dispatch({ type: "remove", productId });
       if (product) {
-        pushToast("Đã xoá khỏi giỏ", product.name);
+        toast("Đã xoá khỏi giỏ", { description: product.name });
       }
     },
-    [pushToast],
+    [],
   );
 
   const applyCoupon = useCallback(
@@ -227,18 +210,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         code: code.trim().toUpperCase(),
         discountRate,
       });
-      pushToast("Áp mã thành công", code.trim().toUpperCase());
+      toast.success("Áp mã thành công", { description: code.trim().toUpperCase() });
       return { ok: true, message: "Mã giảm giá đã được áp dụng." };
     },
-    [pushToast],
+    [],
   );
 
   const clearCoupon = useCallback(() => {
     dispatch({ type: "clearCoupon" });
-  }, []);
-
-  const dismissToast = useCallback((id: number) => {
-    setToasts((current) => current.filter((toast) => toast.id !== id));
   }, []);
 
   const resetCart = useCallback(() => {
@@ -270,14 +249,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       items: state.items,
       couponCode: state.couponCode,
       discountRate: state.discountRate,
-      toasts,
       isHydrated,
       addItem,
       updateQuantity,
       removeItem,
       applyCoupon,
       clearCoupon,
-      dismissToast,
       resetCart,
       ...summary,
     }),
@@ -285,7 +262,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       addItem,
       applyCoupon,
       clearCoupon,
-      dismissToast,
       isHydrated,
       removeItem,
       resetCart,
@@ -293,7 +269,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       state.discountRate,
       state.items,
       summary,
-      toasts,
       updateQuantity,
     ],
   );
@@ -301,34 +276,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   return (
     <CartContext.Provider value={value}>
       {children}
-      <div className="pointer-events-none fixed inset-x-0 top-24 z-50 flex justify-center px-4">
-        <div className="w-full max-w-md space-y-2">
-          {toasts.map((toast) => (
-            <div
-              key={toast.id}
-              className="pointer-events-auto rounded-2xl border border-[var(--color-line)] bg-white px-4 py-3 shadow-[0_20px_60px_rgba(17,57,95,0.14)] transition duration-300"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="text-sm font-bold text-[var(--color-ink)]">
-                    {toast.title}
-                  </p>
-                  <p className="mt-1 text-sm text-[var(--color-muted)]">
-                    {toast.detail}
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => dismissToast(toast.id)}
-                  className="rounded-full border border-[var(--color-line)] px-2 py-1 text-xs font-semibold text-[var(--color-muted)]"
-                >
-                  Đóng
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </CartContext.Provider>
   );
 }

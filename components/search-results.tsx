@@ -14,7 +14,7 @@ export function SearchResults() {
 
   return (
     <>
-      <section className="rounded-[32px] border border-[var(--color-line)] bg-white p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8">
+      <section className="rounded-[32px] border border-[var(--color-line)] bg-[var(--color-card)] p-6 shadow-[0_20px_60px_rgba(17,57,95,0.08)] sm:p-8">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]">
           Product search
         </p>
@@ -47,8 +47,8 @@ export function SearchResults() {
       </section>
 
       {results.length === 0 ? (
-        <section className="mt-6 rounded-[32px] border border-[var(--color-line)] bg-[linear-gradient(180deg,#ffffff,#eef7ff)] p-10 text-center shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
-          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-white text-3xl text-[var(--color-brand)]">
+        <section className="mt-6 rounded-[32px] border border-[var(--color-line)] bg-[var(--color-card)] p-10 text-center shadow-[0_20px_60px_rgba(17,57,95,0.08)]">
+          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[var(--color-card)] text-3xl text-[var(--color-brand)]">
             ⌕
           </div>
           <h2 className="mt-5 font-display text-[30px] font-extrabold leading-none text-[var(--color-ink)]">
@@ -64,9 +64,9 @@ export function SearchResults() {
           {results.map((product) => (
             <article
               key={product.id}
-              className="rounded-[28px] border border-[var(--color-line)] bg-white p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)]"
+              className="rounded-[28px] border border-[var(--color-line)] bg-[var(--color-card)] p-5 shadow-[0_20px_60px_rgba(17,57,95,0.08)]"
             >
-              <div className="flex aspect-[1/0.8] items-center justify-center rounded-[24px] bg-[linear-gradient(180deg,#fefefe,#edf5fc)]">
+              <div className="flex aspect-[1/0.8] items-center justify-center rounded-[24px] bg-[var(--color-brand-soft)]">
                 <ProductIllustration product={product} />
               </div>
               <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
